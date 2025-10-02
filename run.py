@@ -8,3 +8,5 @@ if __name__ == "__main__":
     enhanced_data, predictor_model = process_automated_extraction("/Users/patrick/Documents/whatsapp.txt")
     print("\n SYSTÈME AUTOMATISÉ Okkkkk!")
     print("Fichiers generes: messages_nettoyes.csv, prix_llm_enhanced.csv")
+    print("   • messages_final.csv - Messages nettoyés") 
+

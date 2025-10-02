@@ -14,7 +14,6 @@ class PigPriceExtractorLLM:
             )
         except:
             try:
-                 # Multilingue africain
                 self.ner_pipeline = pipeline(
                     "ner",
                     model="Davlan/xlm-roberta-base-wikiann-ner", 
@@ -52,18 +51,16 @@ class PigPriceExtractorLLM:
         """Extraction robuste avec fallback"""
         prices = []
         
-        # Méthode 1: Patterns réguliers (plus fiable)
         for pattern in self.price_patterns:
             matches = re.finditer(pattern, text, re.IGNORECASE)
             for match in matches:
                 try:
                     price = self._normalize_price(match.group(1))
-                    if price and 1000 <= price <= 2000000:  # Validation range
+                    if price and 1000 <= price <= 2000000:  
                         prices.append(price)
                 except:
                     continue
         
-        # Méthode 2: NER uniquement si disponible et pas assez de résultats
         if self.ner_pipeline and len(prices) < 2:
             try:
                 entities = self.ner_pipeline(text)
