@@ -60,7 +60,7 @@ def filtrer_pertinence_porcs(df):
     df_filtre = df[mask]
     apres_filtrage = len(df_filtre)
     
-    print(f"🎯 Filtrage pertinence: {avant_filtrage - apres_filtrage} messages non-pertinents supprimés")
+    print(f"Filtrage pertinence: {avant_filtrage - apres_filtrage} messages non-pertinents supprimés")
     
     return df_filtre
 
@@ -77,7 +77,7 @@ def extraire_entites_porcines(message):
         'transaction_type': None
     }
     
-    # Détection type d'animal
+    # Détection type animal
     if re.search(r'\b(porc|cochon)\b', message_str):
         entites['animal_type'] = 'porc'
     elif re.search(r'\btruie\b', message_str):
@@ -101,7 +101,7 @@ def extraire_entites_porcines(message):
     elif re.search(r'\b(vétérinaire|veto|malade|médecin)\b', message_str):
         entites['produit_type'] = 'service'
     
-    # Détection type de transaction
+    # detection type
     if re.search(r'\b(vendre|vente|disponible|prix)\b', message_str):
         entites['transaction_type'] = 'vente'
     elif re.search(r'\b(acheter|besoin|cherche|recherche)\b', message_str):
@@ -149,7 +149,7 @@ def categoriser_message(message):
 def nettoyer_messages(input_csv, output_csv="messages_final.csv"):
     """
     Nettoie le CSV brut exporté par parser.py
-    - Corrige l'encodage des caractères africains
+    - Corrige l'encodage des caractères
     - Supprime médias/notifications/joins/liens
     - Enlève emojis et caractères parasites
     - Supprime doublons et lignes vides
@@ -184,7 +184,7 @@ def nettoyer_messages(input_csv, output_csv="messages_final.csv"):
             return pd.DataFrame(columns=['message_id','date','sender','message'])
 
     # 1. CORRECTION DES CARACTÈRES MAL ENCODÉS
-    print("🔧 Correction des caractères africains...")
+    print("🔧 Correction des caractères...")
     df["message"] = df["message"].apply(corriger_caracteres_africains)
     df["sender"] = df["sender"].apply(corriger_caracteres_africains)
 
@@ -281,7 +281,7 @@ def nettoyer_messages(input_csv, output_csv="messages_final.csv"):
 
     # 7. Filtrer messages trop courts (< 5 caractères, probablement inutiles)
     avant_court = len(df)
-    df = df[df["message"].str.len() >= 5]
+    df = df[df["message"].str.len() >= 3]
     short_removed = avant_court - len(df)
     if short_removed > 0:
         print(f"🗑️  {short_removed} messages trop courts supprimés")

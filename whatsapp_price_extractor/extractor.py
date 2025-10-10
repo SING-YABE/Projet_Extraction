@@ -84,7 +84,7 @@ class PigPriceExtractorLLM:
         """Normalisation adaptée au format africain"""
         # Nettoyer
         price_clean = re.sub(r'[^\d,\s]', '', str(price_str))
-        price_clean = price_clean.replace(' ', '')  # Enlever espaces
+        price_clean = price_clean.replace(' ', '')
         
         # Gérer virgule décimale (peu fréquent pour FCFA)
         if ',' in price_clean:

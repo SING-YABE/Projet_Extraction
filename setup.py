@@ -6,7 +6,7 @@ with open("requirements.txt") as f:
 setup(
     name="whatsapp_price_extractor",
     version="1.0.0",
-    author="Votre nom",
+    author="Patrick",
     description="Système d'extraction et de prédiction de prix à partir de conversations WhatsApp",
     packages=find_packages(),
     install_requires=requirements,

@@ -27,7 +27,7 @@ def parse_whatsapp_txt(file_path):
     # Détection automatique de l'encodage
     encoding = detecter_encodage_fichier(file_path)
     
-    # Essayer plusieurs encodages
+    # Plusieurs encodage
     encodings = [encoding, 'utf-8', 'utf-8-sig', 'latin-1', 'cp1252', 'iso-8859-1']
     lines = None
     
@@ -35,17 +35,17 @@ def parse_whatsapp_txt(file_path):
         try:
             with open(file_path, 'r', encoding=enc) as f:
                 lines = f.readlines()
-            print(f"✓ Fichier lu avec encodage: {enc}")
+            print(f" Fichier lu avec encodage: {enc}")
             break
         except (UnicodeDecodeError, FileNotFoundError) as e:
-            print(f"❌ Échec avec {enc}: {e}")
+            print(f" Échec avec {enc}: {e}")
             continue
     
     if lines is None:
-        print(f"❌ Impossible de lire {file_path} avec aucun encodage")
+        print(f" Impossible de lire {file_path} avec aucun encodage")
         return pd.DataFrame(columns=['message_id','date','sender','message'])
     
-    # Pattern amélioré pour WhatsApp
+    # Pattern 
     pattern = r"(\d{1,2}/\d{1,2}/\d{2,4}),?\s*(\d{1,2}:\d{2}(?::\d{2})?)\s*[-\u2013]\s*(.*?):\s*(.*)"
     msg_id = 0
     
@@ -60,6 +60,7 @@ def parse_whatsapp_txt(file_path):
             time_str = match.group(2)
             sender = match.group(3).strip()
             message = match.group(4).strip()
+
             
             # Gestion des dates
             try:
@@ -89,17 +90,17 @@ def parse_whatsapp_txt(file_path):
     df = pd.DataFrame(messages)
     
     if df.empty:
-        print("Aucun message parse verife format")
+        print("Aucun message parse verifie format")
         return df
     
-    # Sauvegarder 
+    # Save
     df.to_csv('messages_nettoyes.csv', index=False, encoding='utf-8-sig')
     print(f"messages_nettoyes.csv créé avec {len(df)} messages")
     
-    # Statistiques
-    print(f"📊 Statistiques du parsing:")
-    print(f"   • Période: {df['date'].min()} to {df['date'].max()}")
+    # Statisque
+    print(f"Statistiques du parsing:")
+    print(f"   • Periode: {df['date'].min()} to {df['date'].max()}")
     print(f"   • Expéditeurs uniques: {df['sender'].nunique()}")
-    print(f"   • Messages avec date valide: {df['date'].notna().sum()}")
+    print(f"   • Message avec date valides: {df['date'].notna().sum()}")
     
     return df
