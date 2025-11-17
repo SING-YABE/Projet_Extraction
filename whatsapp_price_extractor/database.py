@@ -6,10 +6,8 @@ from datetime import datetime
 import pymysql
 import pandas as pd
 
-# --- Pour utiliser pymysql comme connecteur MySQL/MariaDB ---
 pymysql.install_as_MySQLdb()
 
-# --- Définition du modèle de base ---
 Base = declarative_base()
 DB_USER = "root"
 DB_PASS = "root"
@@ -41,7 +39,7 @@ class Price(Base):
     action_type = Column(String(255))
     extraction_method = Column(String(255))
 
-# --- Création des tables dans MariaDB ---
+# --- creation tables ---
 Base.metadata.create_all(engine)
 
 # --- Session ---
@@ -71,7 +69,7 @@ def add_message(session, message_data):
         # print(" Message ajouté:", message_data['message'][:50])
     except IntegrityError as e:
         session.rollback()
-        # print("❌ Erreur ajout message:", e)
+        # print(" Erreur ajout message:", e)
         return session.query(Message).filter_by(
             date=message_data['date'],
             sender=message_data['sender'],
@@ -101,7 +99,7 @@ def add_price(session, price_data):
         print("✅ Prix ajouté:", price_data)
     except IntegrityError as e:
         session.rollback()
-        print("❌ Erreur ajout prix:", e)
+        print(" Erreur ajout prix:", e)
         return session.query(Price).filter_by(
             message_id=price_data['message_id'],
             price=price_data['price'],
@@ -119,7 +117,7 @@ def print_tables():
     for p in session.query(Price).all():
         print(p.id, p.message_id, p.price, p.animal_type, p.action_type)
 
-# === Exemple d'utilisation ===
+# === Exemple use ===
 if __name__ == "__main__":
     # Exemple message
     message_data = {
@@ -141,16 +139,10 @@ if __name__ == "__main__":
     # Affiche tables
     print_tables()
 
-
-
 def get_prices_dataframe(session):
-    """
-    Récupère toutes les données nécessaires depuis la BD
-    et renvoie un DataFrame prêt pour le modèle.
-    """
-    # Jointure Messages <-> Prices
     query = session.query(
         Price.id.label("price_id"),
+        Price.message_id,
         Price.price,
         Price.animal_type,
         Price.action_type,
@@ -158,12 +150,8 @@ def get_prices_dataframe(session):
         Message.sender,
         Message.message
     ).join(Message, Price.message_id == Message.message_id)
-    
-    # Transformation en DataFrame
+
     df = pd.read_sql(query.statement, session.bind)
-    
-    #'date' est bien datetime
     df['date'] = pd.to_datetime(df['date'])
-    
     return df
-   
+ 

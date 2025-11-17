@@ -1,49 +1,50 @@
-"""
-Script d'exécution principal - Watcher automatique + traitement des fichiers existants
-"""
 
-import time
 import os
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
-from whatsapp_price_extractor import process_automated_extraction
+import time
+from whatsapp_price_extractor import process_file_and_train, run_global_prediction
 
-WATCHED_DIR = "/Users/patrick/Documents"
+# === CONFIGURATION DU DOSSIER À SURVEILLER ===
+DOSSIER_SURVEILLE = "/Users/patrick/Documents"
 
-class WhatsAppFileHandler(FileSystemEventHandler):
-    def on_created(self, event):
-        if event.is_directory:
-            return
-        if event.src_path.endswith(".txt"):
-            self.process_file(event.src_path)
+print(f"🔍 Surveillance dossier : {DOSSIER_SURVEILLE}\n")
 
-    def process_file(self, file_path):
-        print(f"\nTraitement fichier : {file_path}")
-        try:
-            enhanced_data, predictor_model = process_automated_extraction(file_path)
-            print("Traitement terminé !")
-            print("   • messages_nettoyes.csv, prix_llm_enhanced.csv générés")
-        except Exception as e:
-            print(f"Erreur ttt du ficher {file_path} : {e}")
+# === MÉMO DES FICHIERS DÉJÀ TRAITÉS ===
+fichiers_traites = set()
 
+# === FONCTION PRINCIPALE ===
+def surveiller_dossier():
+    while True:
+        # Liste tous les fichiers .txt dans le dossier
+        fichiers = [
+            os.path.join(DOSSIER_SURVEILLE, f)
+            for f in os.listdir(DOSSIER_SURVEILLE)
+            if f.lower().endswith(".txt")
+        ]
+
+        # Détection des nouveaux fichiers
+        nouveaux_fichiers = [f for f in fichiers if f not in fichiers_traites]
+
+        if nouveaux_fichiers:
+            for fichier in nouveaux_fichiers:
+                print(f"📂 Traitement fichier : {fichier}")
+                try:
+                    process_file_and_train(fichier)
+                    fichiers_traites.add(fichier)
+                except Exception as e:
+                    print(f"❌ Erreur lors du traitement de {fichier} : {e}")
+
+            # Une fois tous les nouveaux fichiers traités, on génère la prévision globale
+            print("\n📈 Génération des prévisions globales basées sur toutes les données...")
+            try:
+                run_global_prediction()
+                print("✅ Prévision globale générée avec succès !\n")
+            except Exception as e:
+                print(f"⚠️ Erreur lors de la génération des prévisions globales : {e}")
+        
+        # Attend avant de revérifier le dossier
+        time.sleep(5)
+
+# === LANCEMENT ===
 if __name__ == "__main__":
-    print(f" Surveillance dossier : {WATCHED_DIR}")
-    event_handler = WhatsAppFileHandler()
-    observer = Observer()
-    observer.schedule(event_handler, WATCHED_DIR, recursive=False)
-    observer.start()
-
-    # ⚡ Traite fichier existant au lancement
-    for filename in os.listdir(WATCHED_DIR):
-        if filename.endswith(".txt"):
-            file_path = os.path.join(WATCHED_DIR, filename)
-            event_handler.process_file(file_path)
-
-    try:
-        while True:
-            time.sleep(2)
-    except KeyboardInterrupt:
-        observer.stop()
-        print("Surveillance arrêtée.")
-    observer.join()
- 
+    surveiller_dossier()
+# webhook_whatsapp.py

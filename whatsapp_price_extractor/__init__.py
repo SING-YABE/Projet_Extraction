@@ -5,16 +5,18 @@ Système d'extraction et de prédiction de prix à partir de conversations Whats
 """
 
 __version__ = "1.0.0"
-__author__ = "Votre nom"
+__author__ = "LSPA"
 
 from .parser import parse_whatsapp_txt
 from .extractor import PigPriceExtractorLLM
 from .predictor import AutomatedPricePredictor
-from .main import process_automated_extraction
+from .main import process_file_and_train, run_global_prediction, afficher_previsions_3_mois
 
 __all__ = [
     'parse_whatsapp_txt',
     'PigPriceExtractorLLM', 
     'AutomatedPricePredictor',
-    'process_automated_extraction'
+    'process_file_and_train',
+    'run_global_prediction',
+    'afficher_previsions_3_mois'
 ]
