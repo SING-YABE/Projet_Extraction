@@ -1,11 +1,11 @@
 """
 Routes pour les statistiques et analyses
 """
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
 
-from db.database import get_db
+from db.database import get_db, Prediction, Price
 from db import crud
 from services.trend_analyzer import TrendAnalyzer
 from models.schemas import StatsResponse, TrendResponse

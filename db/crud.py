@@ -3,12 +3,14 @@ CRUD operations for database
 """
 from sqlalchemy.orm import Session
 from sqlalchemy import func, desc
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from typing import List, Optional
 
-from db.database import Price, Prediction
+from db.database import Price, PrixAliment, Prediction
 from models.schemas import PriceCreate
 
+
+# ========== ANIMAL PRICES ==========
 
 def create_price(db: Session, price: PriceCreate) -> Price:
     """Create new price entry"""
@@ -26,10 +28,10 @@ def get_prices(
 ) -> List[Price]:
     """Get prices with filters"""
     query = db.query(Price)
-    
+
     if animal_type:
         query = query.filter(Price.animal_type == animal_type)
-    
+
     return query.offset(skip).limit(limit).all()
 
 
@@ -65,10 +67,10 @@ def get_prices_period(
     """Get prices for period"""
     cutoff = datetime.now() - timedelta(days=days)
     query = db.query(Price).filter(Price.date >= cutoff)
-    
+
     if animal_type:
         query = query.filter(Price.animal_type == animal_type)
-    
+
     prices = query.all()
     return [{'prix': p.prix, 'date': p.date} for p in prices]
 
@@ -76,17 +78,17 @@ def get_prices_period(
 def get_statistics(db: Session) -> dict:
     """Get global statistics"""
     total = db.query(Price).count()
-    
+
     # By animal
     by_animal = {}
     animals = db.query(
         Price.animal_type,
         func.count(Price.id)
     ).group_by(Price.animal_type).all()
-    
+
     for animal, count in animals:
         by_animal[animal or 'non_specifie'] = count
-    
+
     # Price ranges
     ranges = {}
     for animal in by_animal.keys():
@@ -95,19 +97,19 @@ def get_statistics(db: Session) -> dict:
             func.max(Price.prix),
             func.avg(Price.prix)
         ).filter(Price.animal_type == animal).first()
-        
+
         ranges[animal] = {
             'min': int(stats[0]) if stats[0] else 0,
             'max': int(stats[1]) if stats[1] else 0,
             'avg': int(stats[2]) if stats[2] else 0
         }
-    
+
     # Date range
     dates = db.query(
         func.min(Price.date),
         func.max(Price.date)
     ).first()
-    
+
     return {
         'total': total,
         'by_animal': by_animal,
@@ -125,14 +127,14 @@ def get_price_evolution(
     period: str = 'week'
 ) -> List[dict]:
     """Get price evolution"""
-    
+
     if period == 'day':
         group_by = func.date(Price.date)
     elif period == 'week':
         group_by = func.date_trunc('week', Price.date)
     else:  # month
         group_by = func.date_trunc('month', Price.date)
-    
+
     results = db.query(
         group_by.label('period'),
         func.avg(Price.prix).label('avg_prix'),
@@ -140,7 +142,7 @@ def get_price_evolution(
     ).filter(
         Price.animal_type == animal_type
     ).group_by('period').order_by('period').all()
-    
+
     return [
         {
             'period': str(r.period),
@@ -149,3 +151,91 @@ def get_price_evolution(
         }
         for r in results
     ]
+
+
+# ========== ALIMENT PRICES ==========
+
+def create_aliment_price(db: Session, aliment_data: dict) -> PrixAliment:
+    """Create new aliment price"""
+    db_aliment = PrixAliment(**aliment_data)
+    db.add(db_aliment)
+    db.flush()
+    return db_aliment
+
+
+def get_aliments_by_categorie(
+    db: Session,
+    categorie: str,
+    days: int = 7
+) -> List[PrixAliment]:
+    """Get aliment prices by category for last N days"""
+    cutoff = datetime.now() - timedelta(days=days)
+    return db.query(PrixAliment).filter(
+        PrixAliment.categorie == categorie,
+        PrixAliment.date >= cutoff
+    ).all()
+
+
+def get_aliment_prices_period(
+    db: Session,
+    start_date: date,
+    end_date: date,
+    aliment_type: str = None
+) -> List[PrixAliment]:
+    """Get aliment prices for period"""
+    query = db.query(PrixAliment).filter(
+        PrixAliment.date >= start_date,
+        PrixAliment.date <= end_date
+    )
+    if aliment_type:
+        query = query.filter(PrixAliment.aliment_type == aliment_type)
+    return query.all()
+
+
+def get_all_aliment_prices(db: Session) -> List[dict]:
+    """Get all aliment prices as dicts for ML"""
+    aliments = db.query(PrixAliment).all()
+    return [
+        {
+            'id': a.id,
+            'prix': a.prix,
+            'aliment_type': a.aliment_type,
+            'categorie': a.categorie,
+            'unite': a.unite,
+            'poids_kg': a.poids_kg,
+            'date': a.date,
+            'vendeur': a.vendeur
+        }
+        for a in aliments
+    ]
+
+
+def get_aliment_statistics(db: Session) -> dict:
+    """Get aliment statistics"""
+    total = db.query(PrixAliment).count()
+
+    # By category
+    by_category = {}
+    categories = db.query(
+        PrixAliment.categorie,
+        func.count(PrixAliment.id)
+    ).group_by(PrixAliment.categorie).all()
+
+    for cat, count in categories:
+        by_category[cat or 'non_specifie'] = count
+
+    # By aliment type
+    by_aliment = {}
+    aliments = db.query(
+        PrixAliment.aliment_type,
+        func.count(PrixAliment.id)
+    ).group_by(PrixAliment.aliment_type).all()
+
+    for aliment, count in aliments:
+        by_aliment[aliment or 'non_specifie'] = count
+
+    return {
+        'total': total,
+        'by_category': by_category,
+        'by_aliment': by_aliment
+    }

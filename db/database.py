@@ -15,9 +15,9 @@ Base = declarative_base()
 
 # Models
 class Price(Base):
-    """Price model"""
+    """Price model for animals"""
     __tablename__ = "prix_extraits"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     prix = Column(Integer, nullable=False)
     animal_type = Column(String(50))
@@ -36,10 +36,29 @@ class Price(Base):
     created_at = Column(DateTime, default=datetime.now)
 
 
+class PrixAliment(Base):
+    """Price model for feed/aliments"""
+    __tablename__ = "prix_aliments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    prix = Column(Integer, nullable=False)
+    aliment_type = Column(String(50))
+    categorie = Column(String(50))
+    unite = Column(String(20))
+    poids_kg = Column(Float)
+    quantite = Column(Integer, default=1)
+    vendeur = Column(String(255))
+    date = Column(Date)
+    message_original = Column(Text)
+    confiance = Column(Integer)
+    extraction_method = Column(String(20), default="gemini")
+    created_at = Column(DateTime, default=datetime.now)
+
+
 class Prediction(Base):
     """Prediction model"""
     __tablename__ = "predictions"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     animal_type = Column(String(50))
     date_prediction = Column(Date)

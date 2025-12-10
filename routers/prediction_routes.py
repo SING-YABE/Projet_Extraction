@@ -7,6 +7,7 @@ from datetime import datetime, date
 
 from ml.predictor import MLPredictor
 from ml.trainer import train_model
+from ml.aliment_predictor import AlimentPredictor
 from services.anomaly_detector import OpportunityDetector
 from db.database import get_db
 from db import crud
@@ -16,30 +17,45 @@ from utils.logger import logger
 router = APIRouter()
 
 ml_predictor = MLPredictor()
+aliment_predictor = AlimentPredictor()
 detector = OpportunityDetector()
 
 
 @router.get("/predict", response_model=PredictionResponse)
 async def predict_price(
-    animal_type: str = Query(..., description="porcelet|truie|verrat|porc"),
-    prediction_date: date = Query(..., description="Date prédiction"),
-    db: Session = Depends(get_db)
+        animal_type: str = Query(...),
+        prediction_date: date = Query(...),
+        db: Session = Depends(get_db)
 ):
-    """Predict price for given animal and date"""
+    """Predict price for given animal and date (en se basant sur le model entrainê des aliments si disponible)"""
 
     if not ml_predictor.model:
-        raise HTTPException(400, "Model not trained. Call /train first")
+        raise HTTPException(400, "Model not trained")
 
     try:
-        # Convert date to datetime
         prix_predit = ml_predictor.predict_single(
             animal_type=animal_type,
             date=datetime.combine(prediction_date, datetime.min.time()),
-            action_type='vente'
+            action_type='vente',
+            aliment_predictor=aliment_predictor
         )
 
-        # Calculate confidence interval (±20%)
         intervalle = int(prix_predit * 0.2)
+        mode = "cascade" if aliment_predictor.is_trained else "standard"
+
+        # ✅ SAUVEGARDER LA PRÉDICTION
+        from db.database import Prediction
+        db_prediction = Prediction(
+            animal_type=animal_type,
+            date_prediction=prediction_date,
+            prix_predit=prix_predit,
+            intervalle_min=prix_predit - intervalle,
+            intervalle_max=prix_predit + intervalle,
+            confiance=f'moyenne ({mode})' if ml_predictor.stats else 'faible',
+            model_version='v1.0'
+        )
+        db.add(db_prediction)
+        db.commit()
 
         return PredictionResponse(
             animal_type=animal_type,
@@ -60,7 +76,7 @@ async def predict_future(
     months: int = 3,
     db: Session = Depends(get_db)
 ):
-    """Predict prices for next N months"""
+    """Predict prices for next N months (include cascade aliments if avalaible)"""
 
     if not ml_predictor.model:
         raise HTTPException(400, "Model not trained")
@@ -70,13 +86,16 @@ async def predict_future(
         from datetime import timedelta
         current_date = datetime.now()
 
+        prediction_mode = "cascade" if aliment_predictor.is_trained else "standard"
+
         for month in range(1, months + 1):
             future_date = current_date + timedelta(days=30 * month)
 
             prix_predit = ml_predictor.predict_single(
                 animal_type=animal_type,
                 date=future_date,
-                action_type='vente'
+                action_type='vente',
+                aliment_predictor=aliment_predictor
             )
 
             intervalle = int(prix_predit * 0.2)
@@ -87,7 +106,7 @@ async def predict_future(
                 'prix_predit': prix_predit,
                 'intervalle_min': prix_predit - intervalle,
                 'intervalle_max': prix_predit + intervalle,
-                'confiance': 'moyenne'
+                'confiance': f'moyenne ({prediction_mode})'
             })
 
         return {"predictions": predictions}
@@ -174,4 +193,98 @@ async def detect_opportunities(
         return opportunities
     except Exception as e:
         logger.error(f"Opportunities detection error: {e}")
+        raise HTTPException(500, str(e))
+
+
+@router.get("/model/accuracy")
+async def get_model_accuracy(
+        days: int = Query(30, description="Derniers N jours à analyser"),
+        db: Session = Depends(get_db)
+):
+    """
+    Analyse la précision du modèle sur prédictions passées
+
+    Compare les prédictions faites dans le passé avec les prix réels observés
+    """
+
+    try:
+        from datetime import timedelta
+        from db.database import Prediction
+
+        cutoff = datetime.now() - timedelta(days=days)
+
+        # Récupérer prédictions passées (faites dans le passé pour des dates déjà écoulées)
+        predictions = db.query(Prediction).filter(
+            Prediction.date_prediction < datetime.now(),
+            Prediction.date_prediction >= cutoff
+        ).all()
+
+        if not predictions:
+            return {
+                'periode_jours': days,
+                'nb_predictions': 0,
+                'message': 'Aucune prédiction passée à analyser. Utilisez POST /api/predict pour créer des prédictions.',
+                'mae': None,
+                'mape': None,
+                'details': []
+            }
+
+        results = []
+        total_erreur = 0
+        total_erreur_pct = 0
+        count_matched = 0
+
+        for pred in predictions:
+            # Trouver prix réels à cette date
+            real_prices = db.query(Price).filter(
+                Price.animal_type == pred.animal_type,
+                Price.date == pred.date_prediction
+            ).all()
+
+            if real_prices:
+                prix_reel = sum(p.prix for p in real_prices) / len(real_prices)
+                erreur = pred.prix_predit - prix_reel
+                erreur_pct = (erreur / prix_reel) * 100
+
+                total_erreur += abs(erreur)
+                total_erreur_pct += abs(erreur_pct)
+                count_matched += 1
+
+                results.append({
+                    'date': str(pred.date_prediction),
+                    'animal': pred.animal_type,
+                    'predit': pred.prix_predit,
+                    'reel': int(prix_reel),
+                    'erreur': int(erreur),
+                    'erreur_pct': round(erreur_pct, 1),
+                    'dans_intervalle': pred.intervalle_min <= prix_reel <= pred.intervalle_max
+                })
+
+        if count_matched > 0:
+            mae = total_erreur / count_matched
+            mape = total_erreur_pct / count_matched
+            precision = sum(1 for r in results if r['dans_intervalle']) / count_matched * 100
+
+            return {
+                'periode_jours': days,
+                'nb_predictions': len(predictions),
+                'nb_avec_donnees_reelles': count_matched,
+                'mae': int(mae),
+                'mape': round(mape, 1),
+                'precision_intervalle': round(precision, 1),
+                'details': results[:20]  # Limiter à 20 résultats
+            }
+
+        return {
+            'periode_jours': days,
+            'nb_predictions': len(predictions),
+            'nb_avec_donnees_reelles': 0,
+            'message': 'Prédictions trouvées mais aucune donnée réelle correspondante',
+            'mae': None,
+            'mape': None,
+            'details': []
+        }
+
+    except Exception as e:
+        logger.error(f"Erreur analyse accuracy: {e}")
         raise HTTPException(500, str(e))

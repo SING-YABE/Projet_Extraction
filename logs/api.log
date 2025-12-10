@@ -568,3 +568,188 @@ age_mois
 2025-11-25 10:38:50,101 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
 2025-11-25 10:38:50,101 - whatsapp_api - INFO - Model trained: MAE=14418, R2=0.963
 2025-11-25 10:56:26,706 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-11-26 12:14:46,033 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-11-26 12:14:46,035 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-11-26 12:14:46,045 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-11-26 17:30:04,511 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 10:13:03,902 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 10:13:03,903 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 10:13:03,913 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 10:55:51,345 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 10:55:53,974 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 10:55:53,975 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 10:55:53,985 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 10:59:52,468 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 10:59:54,969 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 10:59:54,970 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 10:59:54,981 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 10:59:55,753 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 11:14:24,342 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:14:24,343 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:14:24,355 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 11:15:49,435 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:15:49,437 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:15:49,449 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 11:20:15,547 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 11:20:17,688 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:20:17,690 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:20:17,701 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 11:22:05,452 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 11:22:07,808 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:22:07,809 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:27:45,733 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:27:45,735 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:30:16,399 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:30:16,400 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:32:51,509 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:32:51,535 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:36:00,731 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:36:00,732 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:36:48,092 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:36:48,094 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 11:36:48,107 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:43:04,318 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:43:06,982 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:43:06,984 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:43:06,996 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:43:15,153 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:43:17,506 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:43:17,508 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:43:17,519 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:44:08,391 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:44:10,472 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:44:10,473 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:44:10,485 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:44:53,910 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:44:56,125 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:44:56,126 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:44:56,138 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:50:41,698 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:50:46,372 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:50:46,373 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:50:46,399 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:50:52,952 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:50:56,660 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:50:56,662 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:50:56,676 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:51:22,263 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:51:25,774 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:51:25,776 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:51:25,789 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:52:14,685 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:52:17,330 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:52:17,331 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:52:17,342 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:54:50,008 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:54:52,602 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:54:52,606 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:54:52,619 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:55:45,123 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:55:47,594 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:55:47,596 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:55:47,615 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 12:55:57,298 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 12:55:59,882 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:55:59,883 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 12:55:59,900 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:13:37,783 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:13:40,930 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:13:40,931 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:13:40,947 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:14:38,029 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:14:41,109 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:14:41,119 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:14:41,140 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:15:53,656 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:15:56,223 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:15:56,227 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:15:56,243 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:16:12,600 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:16:16,312 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:16:16,315 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:16:16,344 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:18:19,087 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:18:22,190 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:18:22,191 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:18:22,208 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:18:34,132 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:18:36,247 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:18:36,249 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:18:36,264 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:18:51,921 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:18:54,601 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:18:54,609 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:18:54,635 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:20:09,708 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:20:12,398 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:20:12,400 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:20:12,415 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:21:18,993 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:21:22,358 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:21:22,360 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:21:22,376 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 13:23:40,433 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 13:23:43,177 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:23:43,178 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 13:23:43,193 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 15:56:39,006 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 15:56:42,245 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 15:56:42,246 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 15:56:42,265 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 16:00:44,122 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 16:00:47,266 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 16:00:47,269 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 16:00:47,311 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 16:22:28,474 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-10 16:22:34,403 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 16:22:34,407 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 16:22:34,434 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-10 17:17:27,174 - whatsapp_api - INFO - Training model on 403 samples
+2025-12-10 17:17:27,661 - whatsapp_api - INFO - Model trained and saved: MAE=14418, R²=0.963
+2025-12-10 17:17:27,665 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 17:17:27,665 - whatsapp_api - INFO - Model trained: MAE=14418, R2=0.963
+2025-12-10 17:45:21,078 - whatsapp_api - INFO - Training model on 403 samples
+2025-12-10 17:45:21,303 - whatsapp_api - INFO - Model trained and saved: MAE=14418, R²=0.963
+2025-12-10 17:45:21,305 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 17:45:21,305 - whatsapp_api - INFO - Model trained: MAE=14418, R2=0.963
+2025-12-10 17:45:35,616 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:45:40,268 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:45:54,786 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:45:54,801 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:45:54,807 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:45:54,816 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:45:54,822 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:26,667 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:26,687 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:26,698 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:31,804 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:31,820 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:31,832 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:31,844 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:31,853 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:46:31,865 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:17,790 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:23,508 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:23,526 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:23,544 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:23,555 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:23,565 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:23,572 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:48:36,331 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:00,317 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:00,388 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:00,394 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:00,400 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:00,406 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:00,411 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:49:07,414 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:51:09,498 - whatsapp_api - INFO - Training model on 403 samples
+2025-12-10 17:51:09,670 - whatsapp_api - INFO - Model trained and saved: MAE=14418, R²=0.963
+2025-12-10 17:51:09,671 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-10 17:51:09,671 - whatsapp_api - INFO - Model trained: MAE=14418, R2=0.963
+2025-12-10 17:51:16,946 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:51:30,764 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:51:30,804 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:51:30,811 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:51:30,817 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-10 17:55:24,613 - whatsapp_api - INFO - 🛑 Shutting down API

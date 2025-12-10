@@ -59,13 +59,95 @@ class MLPredictor:
         return pd.Series(predictions, index=df.index)
 
     def predict_single(
-        self,
-        animal_type: str,
-        date: datetime,
-        action_type: str = 'vente'
+            self,
+            animal_type: str,
+            date: datetime,
+            action_type: str = 'vente',
+            aliment_predictor=None  # ✅ NOUVEAU paramètre
     ) -> int:
-        """Predict single price"""
+        """
+        Prédit prix animal (avec cascade aliments si disponible)
 
+        Args:
+            animal_type: Type d'animal
+            date: Date de prédiction
+            action_type: Type d'action
+            aliment_predictor: Prédicteur aliments (optionnel, pour cascade)
+
+        Returns:
+            Prix prédit en FCFA
+        """
+
+        # ===== MODE CASCADE : Utilise modèle aliments =====
+        if aliment_predictor and aliment_predictor.is_trained:
+            logger.info("🔄 MODE CASCADE : Prédiction aliments → animaux")
+
+            # ÉTAPE 1 : Prédire prix aliments futurs
+            try:
+                prix_mais = aliment_predictor.predict_single('maïs', date, 'ÉNERGÉTIQUE')
+                prix_soja = aliment_predictor.predict_single('soja', date, 'PROTÉINE')
+                prix_concentre = aliment_predictor.predict_single('concentré', date, 'VITAMINES')
+
+                logger.info(f"   Aliments prédits: Maïs={prix_mais}, Soja={prix_soja}, Concentré={prix_concentre}")
+            except Exception as e:
+                logger.warning(f"⚠️  Erreur prédiction aliments, fallback mode standard: {e}")
+                return self._predict_without_aliments(animal_type, date, action_type)
+
+            # ÉTAPE 2 : Créer DataFrame avec features aliments prédits
+            df = pd.DataFrame({
+                'date': [date],
+                'animal_type': [animal_type],
+                'action_type': [action_type],
+                'prix': [0]
+            })
+
+            # Préparer features avec aliments prédits
+            from ml.features import prepare_features_with_aliment_predictions, get_extended_feature_names
+
+            features = prepare_features_with_aliment_predictions(
+                df,
+                prix_mais_predit=prix_mais,
+                prix_soja_predit=prix_soja,
+                prix_concentre_predit=prix_concentre
+            )
+
+            # Vérifier que le modèle a les bonnes features (17)
+            feature_names = get_extended_feature_names()
+
+            # Si le modèle actuel n'a que 13 features, fallback
+            if len(self.feature_names) < 17:
+                logger.warning("⚠️  Modèle animaux entraîné sans features aliments, fallback mode standard")
+                return self._predict_without_aliments(animal_type, date, action_type)
+
+            X = features[feature_names].fillna(0)
+            prediction = self.predict_batch(df)[0]
+
+            logger.info(f"✅ Prédiction CASCADE: {int(prediction)} FCFA")
+
+        else:
+            # ===== MODE STANDARD : Sans aliments =====
+            logger.info("📊 MODE STANDARD : Prédiction animaux uniquement")
+            prediction = self._predict_without_aliments(animal_type, date, action_type)
+
+        return max(1000, int(prediction))
+
+    def _predict_without_aliments(
+            self,
+            animal_type: str,
+            date: datetime,
+            action_type: str = 'vente'
+    ) -> int:
+        """
+        Prédiction sans features aliments (mode standard)
+
+        Args:
+            animal_type: Type d'animal
+            date: Date
+            action_type: Type d'action
+
+        Returns:
+            Prix prédit
+        """
         df = pd.DataFrame({
             'date': [date],
             'animal_type': [animal_type],
