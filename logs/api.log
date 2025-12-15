@@ -23465,3 +23465,38 @@ google.api_core.exceptions.DeadlineExceeded: 504 The request timed out. Please t
 2025-12-15 14:46:52,670 - whatsapp_api - INFO -    MAE: 12279 FCFA
 2025-12-15 14:46:52,671 - whatsapp_api - INFO -    R²: 0.759
 2025-12-15 14:46:52,690 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-15 16:17:04,143 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:17:04,145 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:17:04,145 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:17:04,145 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:17:04,145 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:17:04,146 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:17:04,154 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:17:04,155 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:17:04,155 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:17:04,155 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:17:04,164 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-15 16:19:05,369 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-15 16:19:07,687 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:19:07,690 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:19:07,690 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:19:07,690 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:19:07,691 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:19:07,692 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:19:07,712 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:19:07,712 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:19:07,712 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:19:07,712 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:19:07,722 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-15 16:23:57,938 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-15 16:24:00,649 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:24:00,662 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:24:00,662 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:24:00,662 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:24:00,663 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:24:00,670 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:24:00,686 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:24:00,686 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:24:00,686 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:24:00,686 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:24:00,697 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
