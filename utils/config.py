@@ -13,10 +13,10 @@ class Settings(BaseSettings):
     VERSION: str = "2.0.0"
     
     # Database
-    DATABASE_URL: str = "postgresql://user:password@localhost:5432/whatsapp_prices"
+    DATABASE_URL: str = "postgresql://root:password@localhost:5432/whatsapp_prices"
     
     # Gemini
-    GEMINI_API_KEY: str = "AIzaSyBFSU-8oSZhnjXEta3eMfAMAUP8Y9VoJIw"
+    GEMINI_API_KEY: str = "AIzaSyDfAQicGnowyrWho83metE_PTm_Pdo6C6I"
     
     # CORS
     CORS_ORIGINS: List[str] = ["http://localhost:4200", "http://localhost:3000"]
