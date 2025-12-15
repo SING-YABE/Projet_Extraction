@@ -14,6 +14,7 @@ class GeminiPriceExtractor:
     PROMPT_TEMPLATE = """Tu es un expert en analyse de marchés agricoles au Burkina Faso.
 
 TÂCHE: Extrait TOUS les prix d'animaux ET d'aliments pour bétail de ces messages WhatsApp.
+RÈGLE DATE IMPORTANTE: Utilise **OBLIGATOIREMENT** la date fournie dans l'en-tête de chaque message (ex: 'Date: 2025-04-10'). Cette date est la date d'envoi du message. Elle doit être au format 'YYYY-MM-DD'. Si aucune date n'est présente dans le message lui-même, utilise la date de l'en-tête.
 
 CONTEXTE:
 - Marché porcin au Burkina Faso

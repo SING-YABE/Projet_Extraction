@@ -9,7 +9,8 @@ from ml.predictor import MLPredictor
 from ml.trainer import train_model
 from ml.aliment_predictor import AlimentPredictor
 from services.anomaly_detector import OpportunityDetector
-from db.database import get_db
+from db.database import get_db, Price
+from sqlalchemy import and_
 from db import crud
 from models.schemas import PredictionResponse, TrainingResponse, OpportunityResponse
 from utils.logger import logger
@@ -41,6 +42,7 @@ async def predict_price(
         )
 
         intervalle = int(prix_predit * 0.2)
+        logger.info(f">>>>>>>=====Etat d'entrainement du modèle pour les aliments: {aliment_predictor.is_trained}<<<<")
         mode = "cascade" if aliment_predictor.is_trained else "standard"
 
         # ✅ SAUVEGARDER LA PRÉDICTION
@@ -237,8 +239,10 @@ async def get_model_accuracy(
         for pred in predictions:
             # Trouver prix réels à cette date
             real_prices = db.query(Price).filter(
-                Price.animal_type == pred.animal_type,
-                Price.date == pred.date_prediction
+                and_(
+                    Price.animal_type == pred.animal_type,
+                    Price.date == pred.date_prediction
+                )
             ).all()
 
             if real_prices:
