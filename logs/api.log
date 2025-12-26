@@ -23500,3 +23500,102 @@ google.api_core.exceptions.DeadlineExceeded: 504 The request timed out. Please t
 2025-12-15 16:24:00,686 - whatsapp_api - INFO -    MAE: 12279 FCFA
 2025-12-15 16:24:00,686 - whatsapp_api - INFO -    R²: 0.759
 2025-12-15 16:24:00,697 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-15 16:26:38,598 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-15 16:26:41,539 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:26:41,541 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:26:41,541 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:26:41,541 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:26:41,541 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:26:41,543 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:26:41,551 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:26:41,551 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:26:41,551 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:26:41,552 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:26:41,561 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-15 16:30:19,254 - whatsapp_api - INFO - Parsed 7138 messages
+2025-12-15 16:30:19,254 - whatsapp_api - INFO - Parsed 7138 messages
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - 
+======================================================================
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - ======================================================================
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - 📊 Total messages: 7138
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - 📦 Batches: 72 × 100 messages
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - ======================================================================
+
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - 📦 BATCH 1/72
+2025-12-15 16:30:19,255 - whatsapp_api - INFO -    Messages: 100 (index 0 to 99)
+2025-12-15 16:30:19,255 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2025-12-15 16:30:43,766 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:30:43,767 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:30:43,767 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:30:43,768 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:30:43,768 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:30:43,769 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-15 16:30:43,777 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-15 16:30:43,777 - whatsapp_api - INFO -    Features: 8
+2025-12-15 16:30:43,777 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-15 16:30:43,777 - whatsapp_api - INFO -    R²: 0.759
+2025-12-15 16:30:43,786 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-15 17:31:42,652 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,897 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,908 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,920 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,935 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,943 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,948 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,953 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:42,958 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,305 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,313 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,322 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,328 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,336 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,341 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,350 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,357 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,364 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,370 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,375 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,380 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,386 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,396 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,404 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,409 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,414 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,420 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,425 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,430 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,436 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,441 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,447 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,452 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,457 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,463 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,470 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,474 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,479 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,483 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,487 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,493 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,499 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,505 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,510 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,518 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,526 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,532 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,538 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,545 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,551 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,556 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,561 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,565 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,570 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,576 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,581 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,586 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,593 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 17:31:43,598 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
+2025-12-15 18:03:30,274 - whatsapp_api - INFO - 🛑 Shutting down API
