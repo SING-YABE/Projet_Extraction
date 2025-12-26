@@ -23599,3 +23599,30 @@ google.api_core.exceptions.DeadlineExceeded: 504 The request timed out. Please t
 2025-12-15 17:31:43,593 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
 2025-12-15 17:31:43,598 - whatsapp_api - INFO - 📊 MODE STANDARD : Prédiction animaux uniquement
 2025-12-15 18:03:30,274 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-26 15:36:48,882 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-26 15:36:48,884 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-26 15:36:48,884 - whatsapp_api - INFO -    Features: 8
+2025-12-26 15:36:48,884 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-26 15:36:48,884 - whatsapp_api - INFO -    R²: 0.759
+2025-12-26 15:36:48,886 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-26 15:36:48,895 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-26 15:36:48,895 - whatsapp_api - INFO -    Features: 8
+2025-12-26 15:36:48,895 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-26 15:36:48,895 - whatsapp_api - INFO -    R²: 0.759
+2025-12-26 15:36:48,906 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2025-12-26 15:37:21,815 - whatsapp_api - INFO - 🔄 MODE CASCADE : Prédiction aliments → animaux
+2025-12-26 15:37:21,844 - whatsapp_api - INFO -    Aliments prédits: Maïs=13798, Soja=12546, Concentré=22266
+2025-12-26 15:37:21,852 - whatsapp_api - WARNING - ⚠️  Modèle animaux entraîné sans features aliments, fallback mode standard
+2025-12-26 15:37:21,860 - whatsapp_api - INFO - >>>>>>>=====Etat d'entrainement du modèle pour les aliments: True<<<<
+2025-12-26 15:37:47,951 - whatsapp_api - INFO - 🛑 Shutting down API
+2025-12-26 15:37:49,756 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-26 15:37:49,758 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-26 15:37:49,758 - whatsapp_api - INFO -    Features: 8
+2025-12-26 15:37:49,758 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-26 15:37:49,758 - whatsapp_api - INFO -    R²: 0.759
+2025-12-26 15:37:49,759 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2025-12-26 15:37:49,766 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2025-12-26 15:37:49,766 - whatsapp_api - INFO -    Features: 8
+2025-12-26 15:37:49,766 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2025-12-26 15:37:49,766 - whatsapp_api - INFO -    R²: 0.759
+2025-12-26 15:37:49,775 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
