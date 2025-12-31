@@ -1,7 +1,7 @@
 """
 Shared workflow to extract and persist prices from messages.
 """
-from typing import List, Dict
+from typing import List, Dict, Optional, Callable
 from sqlalchemy.orm import Session
 
 from services import validator
@@ -15,20 +15,27 @@ from models.schemas import PriceCreate
 def process_messages(
     messages: List[str],
     db: Session,
-    extractor: GeminiPriceExtractor
+    extractor: GeminiPriceExtractor,
+    steps: Optional[List[Dict[str, str]]] = None
 ) -> Dict[str, int]:
     """Extract prices from messages and persist them."""
 
+    def record(step: str, detail: str) -> None:
+        if steps is not None:
+            steps.append({"step": step, "detail": detail})
+        logger.info(f"{step}: {detail}")
+
+    record("messages.received", f"count={len(messages)}")
     extractions = extractor.extract_from_file(messages)
-    logger.info(f"Extracted {len(extractions)} items")
+    record("extraction.completed", f"items={len(extractions)}")
 
     animals = [e for e in extractions if e.get('type') == 'animal']
     aliments = [e for e in extractions if e.get('type') == 'aliment']
 
-    logger.info(f"Found {len(animals)} animals, {len(aliments)} aliments")
+    record("extraction.categorized", f"animals={len(animals)}, aliments={len(aliments)}")
 
     valid_animals = validator.validate_extractions(animals)
-    logger.info(f"Validated {len(valid_animals)}/{len(animals)} animal extractions")
+    record("validation.animals", f"valid={len(valid_animals)}/{len(animals)}")
 
     saved_animals = 0
     for extraction in valid_animals:
@@ -40,7 +47,7 @@ def process_messages(
             logger.error(f"Error saving animal price: {exc}")
 
     db.commit()
-    logger.info(f"Saved {saved_animals} animal prices to database")
+    record("db.animals.saved", f"count={saved_animals}")
 
     saved_aliments = 0
     for aliment in aliments:
@@ -73,7 +80,7 @@ def process_messages(
             logger.error(f"Error saving aliment price: {exc}")
 
     db.commit()
-    logger.info(f"Saved {saved_aliments} aliment prices to database")
+    record("db.aliments.saved", f"count={saved_aliments}")
 
     return {
         'extractions_found': len(extractions),

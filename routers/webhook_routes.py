@@ -73,24 +73,29 @@ async def webhook_whatsapp(
 ):
     """Receive WhatsApp messages from Zapwize and extract prices."""
     try:
+        steps = []
         if payload.type and payload.type.lower() != "text":
             return {
                 "success": True,
                 "ignored": True,
-                "reason": "non-text message"
+                "reason": "non-text message",
+                "steps": [{"step": "payload.ignored", "detail": "non-text message"}]
             }
 
         if not payload.content or not payload.content.strip():
             return {
                 "success": True,
                 "ignored": True,
-                "reason": "empty content"
+                "reason": "empty content",
+                "steps": [{"step": "payload.ignored", "detail": "empty content"}]
             }
 
         logger.info(f"Webhook message received: {payload.id}")
+        steps.append({"step": "payload.received", "detail": f"id={payload.id}"})
 
         message = format_webhook_message(payload)
-        results = process_messages([message], db, extractor)
+        steps.append({"step": "payload.formatted", "detail": "message prepared for Gemini"})
+        results = process_messages([message], db, extractor, steps=steps)
 
         return {
             "success": True,
@@ -98,6 +103,7 @@ async def webhook_whatsapp(
             "extractions_found": results['extractions_found'],
             "valid_extractions": results['valid_animals'] + results['aliments_found'],
             "saved_to_db": results['saved_animals'] + results['saved_aliments'],
+            "steps": steps,
             "details": {
                 "animaux": {
                     "extraits": results['animals_found'],
