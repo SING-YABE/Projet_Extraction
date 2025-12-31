@@ -4,6 +4,7 @@ Configuration settings
 from pydantic_settings import BaseSettings
 from pydantic import model_validator
 from typing import List
+from pathlib import Path
 
 
 class Settings(BaseSettings):
@@ -27,7 +28,13 @@ class Settings(BaseSettings):
     MIN_SAMPLES_TRAINING: int = 50
     
     class Config:
-        env_file = (".env.local", ".env")
+        repo_root = Path(__file__).resolve().parents[1]
+        env_file = (
+            repo_root / ".env.local",
+            repo_root / ".env",
+            ".env.local",
+            ".env",
+        )
         case_sensitive = True
 
     @model_validator(mode="after")
