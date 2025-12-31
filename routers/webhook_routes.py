@@ -92,10 +92,29 @@ async def webhook_whatsapp(
 
         logger.info(f"Webhook message received: {payload.id}")
         steps.append({"step": "payload.received", "detail": f"id={payload.id}"})
+        if payload.content:
+            steps.append({
+                "step": "payload.content",
+                "detail": f"length={len(payload.content)}"
+            })
 
         message = format_webhook_message(payload)
-        steps.append({"step": "payload.formatted", "detail": "message prepared for Gemini"})
+        preview = " ".join(message.splitlines())[:160]
+        steps.append({
+            "step": "payload.formatted",
+            "detail": f"preview={preview}"
+        })
         results = process_messages([message], db, extractor, steps=steps)
+        if extractor.last_raw_response is not None:
+            steps.append({
+                "step": "gemini.raw_length",
+                "detail": f"chars={len(extractor.last_raw_response)}"
+            })
+        if extractor.last_error:
+            steps.append({
+                "step": "gemini.error",
+                "detail": extractor.last_error[:200]
+            })
 
         return {
             "success": True,

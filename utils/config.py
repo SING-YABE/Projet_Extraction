@@ -2,6 +2,7 @@
 Configuration settings
 """
 from pydantic_settings import BaseSettings
+from pydantic import model_validator
 from typing import List
 
 
@@ -26,8 +27,14 @@ class Settings(BaseSettings):
     MIN_SAMPLES_TRAINING: int = 50
     
     class Config:
-        env_file = ".env"
+        env_file = (".env.local", ".env")
         case_sensitive = True
+
+    @model_validator(mode="after")
+    def validate_required(self):
+        if not self.GEMINI_API_KEY:
+            raise ValueError("GEMINI_API_KEY is required. Set it in .env.local or .env.")
+        return self
 
 
 settings = Settings()

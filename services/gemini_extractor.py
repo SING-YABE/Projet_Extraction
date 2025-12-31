@@ -110,9 +110,14 @@ RÈGLES IMPORTANTES:
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel('gemini-2.5-flash')
+        self.last_raw_response = None
+        self.last_error = None
 
     def extract_batch(self, messages: List[str]) -> List[Dict]:
         """Extract prices from batch of messages"""
+
+        self.last_raw_response = None
+        self.last_error = None
 
         formatted = "\n\n".join([
             f"Message {i+1}:\n{msg}"
@@ -141,6 +146,7 @@ RÈGLES IMPORTANTES:
                     logger.info(f"Gemini response from parts (complex response)")
                 else:
                     logger.warning("Gemini response has no text content")
+                    self.last_error = "Gemini response has no text content"
                     return []
 
             # LOG COMPLETE GEMINI RESPONSE
@@ -150,6 +156,7 @@ RÈGLES IMPORTANTES:
             if len(text) > 500:
                 logger.info(f"Last 200 chars: ...{text[-200:]}")
             logger.info("="*60)
+            self.last_raw_response = text
 
             # SAVE FULL RESPONSE TO DEDICATED FILE
             logger.info("="*80)
@@ -173,16 +180,19 @@ RÈGLES IMPORTANTES:
             if not text:
                 logger.warning("⚠️  Gemini returned empty response after cleaning")
                 logger.debug(f"Original text was: {original_text[:200]}")
+                self.last_error = "Gemini returned empty response after cleaning"
                 return []
 
             if not (text.startswith('[') or text.startswith('{')):
                 logger.warning(f"⚠️  Gemini response is not JSON")
                 logger.warning(f"Text starts with: {text[:100]}")
+                self.last_error = "Gemini response is not JSON"
                 return []
 
             # Parse JSON
             results = json.loads(text)
             logger.info(f"✅ Successfully parsed JSON: {len(results) if isinstance(results, list) else 1} items")
+            self.last_error = None
 
             # Log extracted data summary
             if isinstance(results, list) and results:
@@ -198,11 +208,13 @@ RÈGLES IMPORTANTES:
             logger.error(f"❌ JSON parsing error: {e}")
             if 'text' in locals():
                 logger.error(f"Invalid JSON text: {text[:1000]}")
+            self.last_error = f"JSON parsing error: {e}"
             return []
         except Exception as e:
             logger.error(f"❌ Gemini extraction error: {e}")
             import traceback
             logger.error(f"Traceback: {traceback.format_exc()}")
+            self.last_error = f"Gemini extraction error: {e}"
             return []
 
     def extract_from_file(

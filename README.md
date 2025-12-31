@@ -17,9 +17,9 @@ pip install -r requirements.txt
 
 ## ⚙️ Configuration
 
-1. Copier `.env` et configurer:
+1. Copier l'exemple d'environnement:
 ```bash
-cp .env .env.local
+cp .env.example .env.local
 ```
 
 2. Éditer `.env.local`:
