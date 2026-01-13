@@ -23626,3 +23626,2299 @@ google.api_core.exceptions.DeadlineExceeded: 504 The request timed out. Please t
 2025-12-26 15:37:49,766 - whatsapp_api - INFO -    MAE: 12279 FCFA
 2025-12-26 15:37:49,766 - whatsapp_api - INFO -    R²: 0.759
 2025-12-26 15:37:49,775 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 16:23:49,366 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:23:49,367 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:23:49,367 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:23:49,367 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:23:49,367 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:23:49,368 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:23:49,380 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:23:49,380 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:23:49,380 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:23:49,380 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:23:50,773 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:23:50,774 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:23:50,774 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:23:50,774 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:23:50,774 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:23:50,775 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:23:50,782 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:23:50,782 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:23:50,783 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:23:50,783 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:23:50,823 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 16:24:39,083 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:24:39,084 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:24:39,085 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:24:39,085 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:24:39,085 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:24:39,086 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:24:39,096 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:24:39,096 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:24:39,096 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:24:39,096 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:24:40,481 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:24:40,482 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:24:40,482 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:24:40,482 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:24:40,482 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:24:40,483 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 16:24:40,494 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 16:24:40,494 - whatsapp_api - INFO -    Features: 8
+2026-01-13 16:24:40,495 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 16:24:40,495 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 16:24:40,532 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - Webhook message received: 6232CC122DE27100F01B8E2C11CB4CA2
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 16:33:01,922 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 16:33:01,922 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 16:33:02,634 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 16:33:02,647 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 16:33:02,648 - whatsapp_api - INFO - ⏱️  Batch duration: 0.73s
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - ⏱️  Total time: 0.73s (0.01 min)
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - ⚡ Speed: 1.4 messages/second
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 16:33:02,649 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 16:33:02,650 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 16:33:02,651 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 16:37:06,422 - whatsapp_api - INFO - Webhook message received: 6232CC122DE27100F01B8E2C11CB4CA2
+2026-01-13 16:37:06,426 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 16:37:06,429 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:37:06,430 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 16:37:06,431 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 16:37:06,431 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 16:37:06,596 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 16:37:06,599 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - ⏱️  Batch duration: 0.17s
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - ⏱️  Total time: 0.17s (0.00 min)
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 16:37:06,600 - whatsapp_api - INFO - ⚡ Speed: 5.9 messages/second
+2026-01-13 16:37:06,601 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:37:06,601 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 16:37:06,601 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 16:37:06,601 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 16:37:06,601 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 16:37:06,601 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 16:37:06,602 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 16:50:59,166 - whatsapp_api - INFO - Webhook message received: TEST123
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 16:50:59,167 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 16:50:59,167 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 16:50:59,699 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 16:50:59,703 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 16:50:59,703 - whatsapp_api - INFO - ⏱️  Batch duration: 0.54s
+2026-01-13 16:50:59,703 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 16:50:59,703 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - ⏱️  Total time: 0.54s (0.01 min)
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - ⚡ Speed: 1.9 messages/second
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 16:50:59,704 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 16:50:59,705 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 16:50:59,706 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 16:55:59,758 - whatsapp_api - INFO - Webhook message received: 6232CC122DE27100F01B8E2C11CB4CA2
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 16:55:59,763 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 16:55:59,763 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 16:56:00,299 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 16:56:00,302 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ⏱️  Batch duration: 0.54s
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ⏱️  Total time: 0.54s (0.01 min)
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ⚡ Speed: 1.9 messages/second
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 16:56:00,303 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 16:56:00,304 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 16:56:00,304 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 16:59:39,642 - whatsapp_api - INFO - Webhook message received: 3BF599924307E7EEE4D4
+2026-01-13 16:59:39,643 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 16:59:39,643 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:59:39,643 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 16:59:39,643 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:59:39,643 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 16:59:39,644 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 16:59:39,644 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 16:59:39,644 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:59:39,644 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 16:59:39,644 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 16:59:39,644 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 16:59:39,644 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 16:59:39,797 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 16:59:39,800 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 16:59:39,800 - whatsapp_api - INFO - ⏱️  Batch duration: 0.16s
+2026-01-13 16:59:39,800 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 16:59:39,800 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 16:59:39,800 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - ======================================================================
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - ⏱️  Total time: 0.16s (0.00 min)
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - ⚡ Speed: 6.4 messages/second
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 16:59:39,801 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 16:59:39,804 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 16:59:39,805 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 16:59:39,805 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 16:59:39,805 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:00:02,101 - whatsapp_api - INFO - Webhook message received: 3BCEB86049D969E745C9
+2026-01-13 17:00:02,107 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:00:02,108 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:00:02,109 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:00:02,109 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:00:02,275 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 17:00:02,276 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ⏱️  Batch duration: 0.17s
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ⏱️  Total time: 0.17s (0.00 min)
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ⚡ Speed: 6.0 messages/second
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:00:02,277 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:06:04,909 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:06:11,631 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:11,632 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:11,632 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:11,632 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:11,632 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:11,634 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:11,643 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:11,643 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:11,643 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:11,643 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:13,008 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:13,009 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:13,009 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:13,010 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:13,010 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:13,011 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:13,018 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:13,018 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:13,018 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:13,018 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:13,055 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:06:30,824 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:30,825 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:30,825 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:30,825 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:30,825 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:30,826 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:30,835 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:30,835 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:30,835 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:30,835 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:32,193 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:32,194 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:32,194 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:32,194 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:32,194 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:32,195 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:06:32,202 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:06:32,203 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:06:32,203 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:06:32,203 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:06:32,240 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:09:24,892 - whatsapp_api - INFO - Webhook message received: 3BDAD319484F96C042DF
+2026-01-13 17:09:24,893 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:09:24,893 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:09:24,893 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:09:24,893 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:09:24,893 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:09:24,893 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:09:24,894 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:09:24,894 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:09:24,894 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:09:24,894 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:09:24,894 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:09:24,894 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:09:25,600 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 17:09:25,611 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ⏱️  Batch duration: 0.72s
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ⏱️  Total time: 0.72s (0.01 min)
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ⚡ Speed: 1.4 messages/second
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:09:25,611 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:09:25,612 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:09:25,612 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:15:41,761 - whatsapp_api - INFO - Webhook message received: AC7D1244F83849DB979AC1BD2E3D5256
+2026-01-13 17:15:41,763 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:15:41,763 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:15:41,764 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:15:41,764 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:15:42,351 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 17:15:42,354 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ⏱️  Batch duration: 0.59s
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ⏱️  Total time: 0.59s (0.01 min)
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ⚡ Speed: 1.7 messages/second
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:15:42,355 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:15:42,356 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:15:42,356 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:17:09,444 - whatsapp_api - INFO - Webhook message received: ACEA2423A35956303A4E3027837946FE
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:17:09,445 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:17:09,445 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:17:09,593 - whatsapp_api - ERROR - ❌ Gemini extraction error: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+2026-01-13 17:17:09,597 - whatsapp_api - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/patrick/Documents/MASTER/Projet_Extraction/services/gemini_extractor.py", line 130, in extract_batch
+    response = self.model.generate_content(
+        prompt,
+    ...<3 lines>...
+        }
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "999505395914"
+}
+metadata {
+  key: "consumer"
+  value: "projects/999505395914"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 999505395914 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=999505395914"
+}
+]
+
+2026-01-13 17:17:09,597 - whatsapp_api - INFO - ⏱️  Batch duration: 0.15s
+2026-01-13 17:17:09,597 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:17:09,597 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:17:09,597 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:17:09,597 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:17:09,597 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - ⏱️  Total time: 0.15s (0.00 min)
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - ⚡ Speed: 6.6 messages/second
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:17:09,598 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:17:09,602 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:17:09,602 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:29:01,391 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:29:41,544 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:29:41,545 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:29:41,545 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:29:41,545 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:29:41,545 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:29:41,546 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:29:41,553 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:29:41,553 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:29:41,553 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:29:41,553 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:29:41,599 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:29:43,878 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:29:49,517 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:29:49,518 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:29:49,518 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:29:49,518 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:29:49,518 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:29:49,520 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:29:49,528 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:29:49,528 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:29:49,528 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:29:49,528 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:29:49,569 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:29:50,732 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:29:52,106 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:29:52,107 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:29:52,107 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:29:52,107 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:29:52,107 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:29:52,109 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:29:52,116 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:29:52,116 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:29:52,116 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:29:52,116 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:29:52,149 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - Webhook message received: 2ADA3354BA9C78ECFA70
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:30:21,863 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:30:21,864 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:30:21,864 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:30:21,864 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:30:21,864 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:30:21,864 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:30:21,864 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:30:24,220 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ⏱️  Batch duration: 2.36s
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:30:24,221 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - ⏱️  Total time: 2.36s (0.04 min)
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - ⚡ Speed: 0.4 messages/second
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:30:24,222 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:30:24,223 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:30:24,223 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:30:33,764 - whatsapp_api - INFO - Webhook message received: 3B687A3EADC1F171F872
+2026-01-13 17:30:33,765 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:30:33,767 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:30:33,767 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:30:33,767 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:30:33,767 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:30:33,768 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:30:33,768 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:30:33,768 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:30:33,768 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:30:33,768 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:30:33,768 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:30:33,768 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:30:42,451 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 1070 chars)
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - First 500 chars: ```json
+[
+  {
+    "type": "aliment",
+    "prix": 135000,
+    "aliment_type": "Son de blé",
+    "categorie": "ÉNERGÉTIQUE",
+    "unite": "tonne",
+    "poids_kg": 1000,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le son de blé est disponible en quantité chez AGRI-EL à *135000f* la tonne",
+    "confiance": 95
+  },
+  {
+    "type": "aliment",
+    "prix": 150000,
+    "aliment_type": "Son de maïs",
+    "categorie": "ÉNERGÉTIQUE"
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - Last 200 chars: ...   "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le concentré BIO-EARN aussi disponible à *35000f*'",
+    "confiance": 85
+  }
+]
+```
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - BATCH RESPONSE - Length: 1070 characters
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:30:42,453 - whatsapp_api - INFO - ```json
+[
+  {
+    "type": "aliment",
+    "prix": 135000,
+    "aliment_type": "Son de blé",
+    "categorie": "ÉNERGÉTIQUE",
+    "unite": "tonne",
+    "poids_kg": 1000,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le son de blé est disponible en quantité chez AGRI-EL à *135000f* la tonne",
+    "confiance": 95
+  },
+  {
+    "type": "aliment",
+    "prix": 150000,
+    "aliment_type": "Son de maïs",
+    "categorie": "ÉNERGÉTIQUE",
+    "unite": "tonne",
+    "poids_kg": 1000,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le son de maïs à *150000f*",
+    "confiance": 90
+  },
+  {
+    "type": "aliment",
+    "prix": 35000,
+    "aliment_type": "Concentré",
+    "categorie": "VITAMINES",
+    "unite": null,
+    "poids_kg": null,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le concentré BIO-EARN aussi disponible à *35000f*'",
+    "confiance": 85
+  }
+]
+```
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 3 items
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - 📊 Extracted: 3 items
+2026-01-13 17:30:42,454 - whatsapp_api - INFO -    Animaux: 0 ()
+2026-01-13 17:30:42,454 - whatsapp_api - INFO -    Aliments: 3 (Concentré, Son de blé, Son de maïs)
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - ⏱️  Batch duration: 8.69s
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - ✅ Batch result: 3 items extracted
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:30:42,454 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - ✅ Total extracted: 3 items
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - ⏱️  Total time: 8.69s (0.14 min)
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - 📈 Average: 3.0 items/batch
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - ⚡ Speed: 0.1 messages/second
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - 
+📊 Breakdown:
+2026-01-13 17:30:42,455 - whatsapp_api - INFO -    Animaux: 0
+2026-01-13 17:30:42,455 - whatsapp_api - INFO -    Aliments: 3
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - 
+   Détail aliments:
+2026-01-13 17:30:42,455 - whatsapp_api - INFO -       Son de blé: 1
+2026-01-13 17:30:42,455 - whatsapp_api - INFO -       Son de maïs: 1
+2026-01-13 17:30:42,455 - whatsapp_api - INFO -       Concentré: 1
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - extraction.completed: items=3
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=3
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:30:42,455 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:30:42,456 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:30:42,511 - whatsapp_api - INFO - db.aliments.saved: count=3
+2026-01-13 17:34:18,458 - whatsapp_api - INFO - Webhook message received: 3AF02E75E65FC5F63D03
+2026-01-13 17:34:18,460 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:34:18,460 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:34:18,461 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:34:18,461 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:34:21,485 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:34:21,485 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 2 chars)
+2026-01-13 17:34:21,485 - whatsapp_api - INFO - First 500 chars: []
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - BATCH RESPONSE - Length: 2 characters
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - []
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ⏱️  Batch duration: 3.03s
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - ⏱️  Total time: 3.03s (0.05 min)
+2026-01-13 17:34:21,486 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - ⚡ Speed: 0.3 messages/second
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:34:21,487 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:34:21,488 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:35:14,072 - whatsapp_api - INFO - Webhook message received: 3A69B914152A4D1A7408
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:35:14,073 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:35:14,074 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:35:14,074 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:35:16,878 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:35:16,879 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:35:16,879 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:35:16,879 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:35:16,879 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ⏱️  Batch duration: 2.81s
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:35:16,880 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - ⏱️  Total time: 2.81s (0.05 min)
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - ⚡ Speed: 0.4 messages/second
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:35:16,881 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:35:16,882 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:35:16,882 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:36:33,897 - whatsapp_api - INFO - Webhook message received: 3BCD16A50FAE3E37F4B2
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:36:33,898 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:36:33,899 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:36:33,899 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:36:33,899 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:36:33,899 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:36:37,900 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:36:37,902 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ⏱️  Batch duration: 4.00s
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ⏱️  Total time: 4.00s (0.07 min)
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ⚡ Speed: 0.2 messages/second
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:36:37,903 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:36:37,905 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:36:37,905 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:37:15,606 - whatsapp_api - INFO - Webhook message received: AC197AB2C31D0DF0B1726552FF526F31
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:37:15,607 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:37:15,607 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:37:16,900 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:37:16,901 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 2 chars)
+2026-01-13 17:37:16,901 - whatsapp_api - INFO - First 500 chars: []
+2026-01-13 17:37:16,901 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - BATCH RESPONSE - Length: 2 characters
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - []
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:37:16,902 - whatsapp_api - INFO - ⏱️  Batch duration: 1.30s
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - ⏱️  Total time: 1.30s (0.02 min)
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - ⚡ Speed: 0.8 messages/second
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:37:16,903 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:37:16,904 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:37:16,904 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:41:06,461 - whatsapp_api - INFO - Webhook message received: 3EB0B7CFA3CE5F492D7711
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:41:06,462 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:41:06,462 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:41:08,128 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:41:08,128 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:41:08,128 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:41:08,128 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:41:08,129 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:41:08,129 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:41:08,129 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:41:08,129 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:41:08,129 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:41:08,132 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:41:08,132 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:41:08,132 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:41:08,132 - whatsapp_api - INFO - ⏱️  Batch duration: 1.67s
+2026-01-13 17:41:08,132 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - ⏱️  Total time: 1.67s (0.03 min)
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - ⚡ Speed: 0.6 messages/second
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:41:08,133 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:41:08,134 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:41:08,136 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:41:08,136 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:47:02,017 - whatsapp_api - INFO - Webhook message received: AC7B79009F2083F26572CEC8C37067C3
+2026-01-13 17:47:02,018 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:47:02,018 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:02,018 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:47:02,019 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:47:02,019 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:05,871 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ⏱️  Batch duration: 3.85s
+2026-01-13 17:47:05,872 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - ⏱️  Total time: 3.85s (0.06 min)
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - ⚡ Speed: 0.3 messages/second
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:05,873 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:47:05,874 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:47:05,874 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:47:05,874 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:47:05,875 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:47:05,875 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - Webhook message received: AC9F9C75001D4778B6CA58EFED07AFCC
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:05,880 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:05,883 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:47:05,883 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:47:05,883 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:07,124 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ⏱️  Batch duration: 1.24s
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:47:07,125 - whatsapp_api - INFO - ⏱️  Total time: 1.24s (0.02 min)
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - ⚡ Speed: 0.8 messages/second
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:47:07,126 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:47:07,133 - whatsapp_api - INFO - Webhook message received: ACDCDED392E52F1620928294E8B6C5C4
+2026-01-13 17:47:07,133 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:47:07,133 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:07,133 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:47:07,133 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:47:07,134 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:47:07,134 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:10,356 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:10,356 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ⏱️  Batch duration: 3.22s
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:47:10,357 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - ⏱️  Total time: 3.22s (0.05 min)
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - ⚡ Speed: 0.3 messages/second
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:47:10,358 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:47:10,364 - whatsapp_api - INFO - Webhook message received: 2A22DCBBA2F345399241
+2026-01-13 17:47:10,364 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:47:10,365 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:47:10,365 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:47:16,880 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:16,883 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 2 chars)
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - First 500 chars: []
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - BATCH RESPONSE - Length: 2 characters
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - []
+2026-01-13 17:47:16,884 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:47:16,885 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:47:16,885 - whatsapp_api - INFO - ⏱️  Batch duration: 6.52s
+2026-01-13 17:47:16,885 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - ⏱️  Total time: 6.52s (0.11 min)
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - ⚡ Speed: 0.2 messages/second
+2026-01-13 17:47:16,886 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:47:16,887 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:47:16,887 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:47:16,887 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:47:16,887 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:47:16,889 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:47:16,889 - whatsapp_api - INFO - db.aliments.saved: count=0
+2026-01-13 17:48:21,674 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:48:23,513 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:48:23,514 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:48:23,515 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:48:23,515 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:48:23,515 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:48:23,516 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:48:23,527 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:48:23,528 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:48:23,528 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:48:23,528 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:48:23,572 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:49:29,040 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:49:30,845 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:30,846 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:30,846 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:30,846 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:30,846 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:30,848 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:30,856 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:30,856 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:30,856 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:30,856 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:30,899 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:49:33,370 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:49:35,022 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:35,024 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:35,024 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:35,024 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:35,024 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:35,025 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:35,033 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:35,033 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:35,033 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:35,033 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:35,076 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:49:38,158 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:49:39,511 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:39,512 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:39,512 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:39,512 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:39,512 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:39,513 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:39,522 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:39,522 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:39,522 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:39,522 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:39,556 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:49:40,907 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:49:42,297 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:42,298 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:42,298 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:42,298 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:42,298 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:42,300 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:42,307 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:42,307 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:42,307 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:42,307 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:42,340 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:49:46,720 - whatsapp_api - INFO - 🛑 Shutting down API
+2026-01-13 17:49:48,090 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:48,091 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:48,091 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:48,091 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:48,091 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:48,092 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:49:48,099 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:49:48,099 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:49:48,099 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:49:48,099 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:49:48,133 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:50:09,092 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:50:09,094 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:50:09,094 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:50:09,094 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:50:09,094 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:50:09,095 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:50:09,103 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:50:09,103 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:50:09,103 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:50:09,103 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:50:10,586 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:50:10,587 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:50:10,587 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:50:10,587 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:50:10,587 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:50:10,588 - whatsapp_api - INFO - ML model loaded from ml/models/xgboost_model.pkl
+2026-01-13 17:50:10,595 - whatsapp_api - INFO - ✅ Modèle ALIMENTS chargé depuis ml/models/xgboost_aliments.pkl
+2026-01-13 17:50:10,595 - whatsapp_api - INFO -    Features: 8
+2026-01-13 17:50:10,595 - whatsapp_api - INFO -    MAE: 12279 FCFA
+2026-01-13 17:50:10,595 - whatsapp_api - INFO -    R²: 0.759
+2026-01-13 17:50:10,632 - whatsapp_api - INFO - 🚀 Starting WhatsApp Price Intelligence API
+2026-01-13 17:50:17,814 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:17,814 - whatsapp_api - INFO - 📦 PAYLOAD BRUT COMPLET
+2026-01-13 17:50:17,814 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:17,815 - whatsapp_api - INFO - {
+  "id": "3B816B6E95EBAA4BFD94",
+  "content": "Bonjour à tous !\nBon début de semaine à tous 🙏 \n🌾Le son de blé est disponible en quantité chez AGRI-EL à *135000f* la tonne ;\n🌽Le son de maïs à *150000f* .\n Le concentré BIO-EARN aussi disponible à *35000f*'",
+  "number": "22666243304",
+  "chatid": "22666243304@s.whatsapp.net",
+  "type": "text",
+  "isgroup": false,
+  "istag": false,
+  "from_": {
+    "fromMe": false,
+    "id": "22666243304@s.whatsapp.net",
+    "number": "22666243304",
+    "pushname": "TRAORE Rachid",
+    "countrycode": "226"
+  },
+  "group": {
+    "id": "",
+    "name": ""
+  },
+  "isviewonce": false
+}
+2026-01-13 17:50:17,815 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:17,815 - whatsapp_api - INFO - Webhook message received: 3B816B6E95EBAA4BFD94
+2026-01-13 17:50:17,815 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:17,815 - whatsapp_api - INFO - MESSAGE FORMATÉ ENVOYÉ À GEMINI
+2026-01-13 17:50:17,815 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - Date: 2026-01-13
+Sender: TRAORE Rachid
+Chat Type: direct
+Chat ID: 22666243304@s.whatsapp.net
+Message: Bonjour à tous !
+Bon début de semaine à tous 🙏 
+🌾Le son de blé est disponible en quantité chez AGRI-EL à *135000f* la tonne ;
+🌽Le son de maïs à *150000f* .
+ Le concentré BIO-EARN aussi disponible à *35000f*'
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:50:17,816 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:50:17,817 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:50:17,817 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:50:26,739 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 1070 chars)
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - First 500 chars: ```json
+[
+  {
+    "type": "aliment",
+    "prix": 135000,
+    "aliment_type": "Son de blé",
+    "categorie": "ÉNERGÉTIQUE",
+    "unite": "tonne",
+    "poids_kg": 1000,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le son de blé est disponible en quantité chez AGRI-EL à *135000f* la tonne",
+    "confiance": 95
+  },
+  {
+    "type": "aliment",
+    "prix": 150000,
+    "aliment_type": "Son de maïs",
+    "categorie": "ÉNERGÉTIQUE"
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - Last 200 chars: ...   "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le concentré BIO-EARN aussi disponible à *35000f*'",
+    "confiance": 85
+  }
+]
+```
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - BATCH RESPONSE - Length: 1070 characters
+2026-01-13 17:50:26,743 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ```json
+[
+  {
+    "type": "aliment",
+    "prix": 135000,
+    "aliment_type": "Son de blé",
+    "categorie": "ÉNERGÉTIQUE",
+    "unite": "tonne",
+    "poids_kg": 1000,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le son de blé est disponible en quantité chez AGRI-EL à *135000f* la tonne",
+    "confiance": 95
+  },
+  {
+    "type": "aliment",
+    "prix": 150000,
+    "aliment_type": "Son de maïs",
+    "categorie": "ÉNERGÉTIQUE",
+    "unite": "tonne",
+    "poids_kg": 1000,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le son de maïs à *150000f*",
+    "confiance": 90
+  },
+  {
+    "type": "aliment",
+    "prix": 35000,
+    "aliment_type": "Concentré",
+    "categorie": "VITAMINES",
+    "unite": null,
+    "poids_kg": null,
+    "quantite": 1,
+    "action": "vente",
+    "vendeur": "AGRI-EL",
+    "date": "2026-01-13",
+    "message_original": "Le concentré BIO-EARN aussi disponible à *35000f*'",
+    "confiance": 85
+  }
+]
+```
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 3 items
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - 📊 Extracted: 3 items
+2026-01-13 17:50:26,744 - whatsapp_api - INFO -    Animaux: 0 ()
+2026-01-13 17:50:26,744 - whatsapp_api - INFO -    Aliments: 3 (Son de blé, Son de maïs, Concentré)
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ⏱️  Batch duration: 8.93s
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ✅ Batch result: 3 items extracted
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ✅ Total extracted: 3 items
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ⏱️  Total time: 8.93s (0.15 min)
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - 📈 Average: 3.0 items/batch
+2026-01-13 17:50:26,744 - whatsapp_api - INFO - ⚡ Speed: 0.1 messages/second
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - 
+📊 Breakdown:
+2026-01-13 17:50:26,745 - whatsapp_api - INFO -    Animaux: 0
+2026-01-13 17:50:26,745 - whatsapp_api - INFO -    Aliments: 3
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - 
+   Détail aliments:
+2026-01-13 17:50:26,745 - whatsapp_api - INFO -       Son de blé: 1
+2026-01-13 17:50:26,745 - whatsapp_api - INFO -       Son de maïs: 1
+2026-01-13 17:50:26,745 - whatsapp_api - INFO -       Concentré: 1
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - extraction.completed: items=3
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=3
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:50:26,745 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:50:26,746 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:50:26,777 - whatsapp_api - INFO - db.aliments.saved: count=3
+2026-01-13 17:51:45,940 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - 📦 PAYLOAD BRUT COMPLET
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - {
+  "id": "3BFE06E2DCE34608BEB2",
+  "content": "@228161598001290 @41760470343706 bonsoir demande validation de ciffre fort preprod v2.0.0\ncdlt",
+  "number": "22655220706",
+  "chatid": "120363422617989227@g.us",
+  "type": "text",
+  "isgroup": true,
+  "istag": false,
+  "from_": {
+    "fromMe": false,
+    "id": "22655220706@s.whatsapp.net",
+    "number": "22655220706",
+    "pushname": "Yves Dieudonné Sawadogo",
+    "countrycode": "226"
+  },
+  "group": {
+    "id": "120363422617989227@g.us",
+    "name": ""
+  },
+  "isviewonce": false
+}
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - Webhook message received: 3BFE06E2DCE34608BEB2
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:45,941 - whatsapp_api - INFO - MESSAGE FORMATÉ ENVOYÉ À GEMINI
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - Date: 2026-01-13
+Sender: Yves Dieudonné Sawadogo
+Chat Type: group
+Chat ID: 120363422617989227@g.us
+Message: @228161598001290 @41760470343706 bonsoir demande validation de ciffre fort preprod v2.0.0
+cdlt
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - messages.received: count=1
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - 🚀 GEMINI EXTRACTION START
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - 📊 Total messages: 1
+2026-01-13 17:51:45,942 - whatsapp_api - INFO - 📦 Batches: 1 × 100 messages
+2026-01-13 17:51:45,943 - whatsapp_api - INFO - ⏱️  Delay between batches: 4s
+2026-01-13 17:51:45,943 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:51:45,943 - whatsapp_api - INFO - 
+──────────────────────────────────────────────────────────────────────
+2026-01-13 17:51:45,943 - whatsapp_api - INFO - 📦 BATCH 1/1
+2026-01-13 17:51:45,943 - whatsapp_api - INFO -    Messages: 1 (index 0 to 0)
+2026-01-13 17:51:45,943 - whatsapp_api - INFO - ──────────────────────────────────────────────────────────────────────
+2026-01-13 17:51:48,447 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - 📤 GEMINI RAW RESPONSE (length: 14 chars)
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - First 500 chars: ```json
+[]
+```
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - ============================================================
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - BATCH RESPONSE - Length: 14 characters
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - ================================================================================
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - FULL RESPONSE:
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - ```json
+[]
+```
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - ================================================================================
+
+2026-01-13 17:51:48,448 - whatsapp_api - INFO - ✂️  Removed ```json markdown wrapper
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ✅ Successfully parsed JSON: 0 items
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ⏱️  Batch duration: 2.51s
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ✅ Batch result: 0 items extracted
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - 
+======================================================================
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - 🏁 EXTRACTION COMPLETE
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ======================================================================
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ✅ Total extracted: 0 items
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ⏱️  Total time: 2.51s (0.04 min)
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - 📈 Average: 0.0 items/batch
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ⚡ Speed: 0.4 messages/second
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - ======================================================================
+
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - extraction.completed: items=0
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - extraction.categorized: animals=0, aliments=0
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - Validated 0/0 extractions
+2026-01-13 17:51:48,449 - whatsapp_api - INFO - validation.animals: valid=0/0
+2026-01-13 17:51:48,452 - whatsapp_api - INFO - db.animals.saved: count=0
+2026-01-13 17:51:48,452 - whatsapp_api - INFO - db.aliments.saved: count=0

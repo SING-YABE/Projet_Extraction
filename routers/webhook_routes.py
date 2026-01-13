@@ -73,6 +73,13 @@ async def webhook_whatsapp(
 ):
     """Receive WhatsApp messages from Zapwize and extract prices."""
     try:
+        # 🆕 Logger le payload complet
+        import json
+        logger.info("="*80)
+        logger.info("📦 PAYLOAD BRUT COMPLET")
+        logger.info("="*80)
+        logger.info(json.dumps(payload.dict(), indent=2, ensure_ascii=False))
+        logger.info("="*80)
         steps = []
         if payload.type and payload.type.lower() != "text":
             return {
@@ -99,6 +106,12 @@ async def webhook_whatsapp(
             })
 
         message = format_webhook_message(payload)
+        # msg formaté pour Gemini
+        logger.info("="*80)
+        logger.info("MESSAGE FORMATÉ ENVOYÉ À GEMINI")
+        logger.info("="*80)
+        logger.info(message)
+        logger.info("="*80)
         preview = " ".join(message.splitlines())[:160]
         steps.append({
             "step": "payload.formatted",

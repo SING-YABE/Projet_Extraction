@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     VERSION: str = "2.0.0"
     
     # Database
-    DATABASE_URL: str = "postgresql://user:password@localhost:5432/whatsapp_prices"
+    DATABASE_URL: str = "postgresql://root:password@localhost:5432/whatsapp_prices"
     
     # Gemini
     GEMINI_API_KEY: str = ""
@@ -28,15 +28,16 @@ class Settings(BaseSettings):
     MIN_SAMPLES_TRAINING: int = 50
     
     class Config:
-        repo_root = Path(__file__).resolve().parents[1]
-        env_file = (
-            repo_root / ".env.local",
-            repo_root / ".env",
-            ".env.local",
-            ".env",
-        )
+        # repo_root = Path(__file__).resolve().parents[1]
+        # env_file = (
+        #     repo_root / ".env.local",
+        #     repo_root / ".env",
+        #     ".env.local",
+        #     ".env",
+        # )
+        env_file = ".env"  
         case_sensitive = True
-
+     
     @model_validator(mode="after")
     def validate_required(self):
         if not self.GEMINI_API_KEY:
