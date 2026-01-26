@@ -2,15 +2,9 @@
 All Pydantic schemas
 """
 from pydantic import BaseModel, ConfigDict, Field
-from typing import List, Optional, Dict
-from datetime import date
-
+from typing import List, Optional, Dict, Any, Union
 from models.price import PriceCreate, PriceResponse, PriceInDB
-from models.prediction import (
-    PredictionResponse,
-    TrainingResponse,
-    OpportunityResponse
-)
+from models.prediction import ( PredictionResponse, TrainingResponse, OpportunityResponse )
 
 
 class ExtractionResponse(BaseModel):
@@ -41,6 +35,8 @@ class TrendResponse(BaseModel):
 
 class WhatsAppFrom(BaseModel):
     """Sender details from webhook payload"""
+    model_config = ConfigDict(extra='allow')
+
     fromMe: bool = False
     id: Optional[str] = None
     number: Optional[str] = None
@@ -56,16 +52,16 @@ class WhatsAppGroup(BaseModel):
 
 class WhatsAppWebhookPayload(BaseModel):
     """Inbound webhook payload schema"""
-    model_config = ConfigDict(populate_by_name=True)
+    model_config = ConfigDict(populate_by_name=True, extra='allow')
 
-    id: str
-    content: Optional[str] = None
+    id: Optional[str] = None
+    content: Optional[Union[str, Dict[str, Any]]] = None
     number: Optional[str] = None
     chatid: Optional[str] = None
     type: Optional[str] = None
     isgroup: bool = False
     istag: bool = False
-    from_: WhatsAppFrom = Field(alias="from")
+    from_: Optional[WhatsAppFrom] = Field(default=None, alias="from")
     group: Optional[WhatsAppGroup] = None
     isviewonce: bool = False
 

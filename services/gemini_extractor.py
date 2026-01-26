@@ -13,99 +13,160 @@ class GeminiPriceExtractor:
 
     PROMPT_TEMPLATE = """Tu es un expert en analyse de marchés agricoles au Burkina Faso.
 
-TÂCHE: Extrait TOUS les prix d'animaux ET d'aliments pour bétail de ces messages WhatsApp.
-RÈGLE DATE IMPORTANTE: Utilise **OBLIGATOIREMENT** la date fournie dans l'en-tête de chaque message (ex: 'Date: 2025-04-10'). Cette date est la date d'envoi du message. Elle doit être au format 'YYYY-MM-DD'. Si aucune date n'est présente dans le message lui-même, utilise la date de l'en-tête.
+    TÂCHE: Extrait TOUS les prix d'animaux ET d'aliments pour bétail de ces messages WhatsApp.
 
-CONTEXTE:
-- Marché porcin au Burkina Faso
-- Prix en FCFA (Francs CFA)
-- Variations: "f", "fcfa", "franc", "mille", "k" (1k = 1000)
-- Dialecte local: "porco", "goret", "cochon"
+    ⚠️ RÈGLE CRITIQUE DE NORMALISATION ⚠️
+    TOUTES les données d'aliments DOIVENT être exprimées en KILOGRAMMES (kg).
+    Tu DOIS appliquer les conversions suivantes de manière AUTOMATIQUE et SYSTÉMATIQUE :
 
-MESSAGES:
-{messages}
+    🔄 CONVERSIONS OBLIGATOIRES - UNITÉS DE POIDS:
+    - Si "tonne" ou "t" → multiplier par 1000 pour obtenir kg
+      Exemple: "maïs 15000 FCFA la tonne" → poids_kg: 1000, prix_par_kg: 15
+    - Si "kg" ou "kilo" ou "kilogramme" → garder tel quel
+      Exemple: "soja 800 le kg" → poids_kg: 1, prix_par_kg: 800
 
-FORMAT JSON STRICT - Liste d'objets:
-[
-  {{
-    "type": "animal",
-    "prix": 25000,
-    "animal_type": "porcelet",
-    "age_mois": 3,
-    "poids_kg": null,
-    "quantite": 1,
-    "unite": "tete",
-    "action": "vente",
-    "negociable": true,
-    "etat": "sevre",
-    "vendeur": "nom",
-    "date": "2024-11-20",
-    "message_original": "texte",
-    "confiance": 85
-  }},
-  {{
-    "type": "aliment",
-    "prix": 15000,
-    "aliment_type": "maïs",
-    "categorie": "ÉNERGÉTIQUE",
-    "unite": "sac",
-    "poids_kg": 50,
-    "quantite": 1,
-    "vendeur": "nom",
-    "date": "2024-11-20",
-    "message_original": "texte",
-    "confiance": 85
-  }}
-]
+    🎒 CONVERSIONS OBLIGATOIRES - SACS (selon le type d'aliment):
+    Quand tu vois "sac", "sac de", ou juste le prix sans unité précise, applique CES RÈGLES EXACTES :
 
-TYPES D'ALIMENTS PAR CATÉGORIE:
+    RIZ:
+    - "sac de riz" → poids_kg: 120
+    - "son de sac de riz" OU "son de riz" → poids_kg: 50
 
-ÉNERGÉTIQUE (Glucides):
-- Maïs (grain, sac, épis)
-- Mil
-- Sorgho
-- Son de blé
-- Son de maïs
-- Riz
-- Manioc
+    BLÉ:
+    - "sac de blé" → poids_kg: 100
+    - "sac de son de blé" OU "son de blé" → poids_kg: 25
 
-PROTÉINE (Protéines):
-- Soja (grain, tourteau)
-- Tourteau de soja
-- Tourteau de coton
-- Tourteau d'arachide
-- Farine de poisson
-- Drêche de brasserie
+    MAÏS:
+    - "sac de maïs" → poids_kg: 100
+    - "son de maïs" OU "son de sac de maïs" OU "sac de son de maïs" → poids_kg: 50
 
-MINÉRAUX (Minéraux & Oligo-éléments):
-- Complément minéral
-- Pierre à lécher
-- Sel
-- Phosphate bicalcique
-- Coquille d'huître
-- CMV (Complément Minéral Vitaminé)
+    SOJA:
+    - "sac de soja" → poids_kg: 50
+    - "tourteau de soja" → poids_kg: 50
 
-VITAMINES (Vitamines & Concentrés):
-- Concentré
-- Prémix
-- Siatol
-- CMV vitaminé
-- Provende
-- Aliment complet
+    AUTRES ALIMENTS (par défaut):
+    - Si aucune correspondance ci-dessus et que "sac" est mentionné → poids_kg: 50 (estimation par défaut)
 
-RÈGLES IMPORTANTES:
-- type: OBLIGATOIREMENT "animal" ou "aliment"
-- Si type="animal": animal_type obligatoire ("porcelet", "truie", "verrat", "porc")
-- Si type="aliment": aliment_type et categorie obligatoires
-- categorie: "ÉNERGÉTIQUE", "PROTÉINE", "MINÉRAUX", "VITAMINES"
-- action: "vente", "achat", "prix_info", "recherche"
-- age_mois: ENTIER uniquement (pas de décimales: 6.5 → 7)
-- poids_kg: peut avoir décimales
-- confiance: 0-100
-- Si aucun prix trouvé: retourne []
-- Retourne UNIQUEMENT du JSON valide, rien d'autre
-- JAMAIS de texte avant ou après le JSON
-- JAMAIS de commentaires dans le JSON"""
+    ⚡ CALCUL AUTOMATIQUE DU PRIX AU KG:
+    Tu DOIS TOUJOURS calculer "prix_par_kg" avec cette formule:
+    prix_par_kg = prix ÷ poids_kg
+
+    Exemples d'application:
+    - "Son de riz à 4500 le sac" 
+      → aliment_type: "son de riz", prix: 4500, poids_kg: 50, prix_par_kg: 90, unite: "kg"
+
+    - "Maïs 15000 FCFA le sac"
+      → aliment_type: "maïs", prix: 15000, poids_kg: 100, prix_par_kg: 150, unite: "kg"
+
+    - "Soja 800 le kilo"
+      → aliment_type: "soja", prix: 800, poids_kg: 1, prix_par_kg: 800, unite: "kg"
+
+    - "Tourteau 25000 la tonne"
+      → aliment_type: "tourteau", prix: 25000, poids_kg: 1000, prix_par_kg: 25, unite: "kg"
+
+    ❌ CAS À IGNORER:
+    Si l'unité est ambiguë et ne correspond à AUCUNE règle ci-dessus (ex: "tas", "paquet", "caisse" sans contexte), tu peux mettre:
+    - poids_kg: null
+    - prix_par_kg: null
+    - unite: "inconnu"
+    (Ces entrées seront filtrées plus tard)
+
+    RÈGLE DATE IMPORTANTE: Utilise **OBLIGATOIREMENT** la date fournie dans l'en-tête de chaque message (ex: 'Date: 2025-04-10'). Cette date est la date d'envoi du message. Elle doit être au format 'YYYY-MM-DD'. Si aucune date n'est présente dans le message lui-même, utilise la date de l'en-tête.
+
+    CONTEXTE:
+    - Marché agricole au Burkina Faso (porcs + aliments pour bétail)
+    - Prix en FCFA (Francs CFA)
+    - Variations: "f", "fcfa", "franc", "mille", "k" (1k = 1000)
+    - Dialecte local: "porco", "goret", "cochon"
+
+    MESSAGES:
+    {messages}
+
+    FORMAT JSON STRICT - Liste d'objets:
+    [
+      {{
+        "type": "animal",
+        "prix": 25000,
+        "animal_type": "porcelet",
+        "age_mois": 3,
+        "poids_kg": null,
+        "quantite": 1,
+        "unite": "tete",
+        "action": "vente",
+        "negociable": true,
+        "etat": "sevre",
+        "vendeur": "nom",
+        "date": "2024-11-20",
+        "message_original": "texte",
+        "confiance": 85
+      }},
+      {{
+        "type": "aliment",
+        "prix": 4500,
+        "aliment_type": "son de riz",
+        "categorie": "ÉNERGÉTIQUE",
+        "unite": "kg",
+        "poids_kg": 50,
+        "prix_par_kg": 90,
+        "quantite": 1,
+        "vendeur": "nom",
+        "date": "2024-11-20",
+        "message_original": "texte",
+        "confiance": 85
+      }}
+    ]
+
+    TYPES D'ALIMENTS PAR CATÉGORIE:
+
+    ÉNERGÉTIQUE (Glucides):
+    - Maïs (grain, sac, épis)
+    - Mil
+    - Sorgho
+    - Son de blé
+    - Son de maïs
+    - Riz
+    - Manioc
+
+    PROTÉINE (Protéines):
+    - Soja (grain, tourteau)
+    - Tourteau de soja
+    - Tourteau de coton
+    - Tourteau d'arachide
+    - Farine de poisson
+    - Drêche de brasserie
+
+    MINÉRAUX (Minéraux & Oligo-éléments):
+    - Complément minéral
+    - Pierre à lécher
+    - Sel
+    - Phosphate bicalcique
+    - Coquille d'huître
+    - CMV (Complément Minéral Vitaminé)
+
+    VITAMINES (Vitamines & Concentrés):
+    - Concentré
+    - Prémix
+    - Siatol
+    - CMV vitaminé
+    - Provende
+    - Aliment complet
+
+    RÈGLES IMPORTANTES:
+    - type: OBLIGATOIREMENT "animal" ou "aliment"
+    - Si type="animal": animal_type obligatoire ("porcelet", "truie", "verrat", "porc")
+    - Si type="aliment": 
+      * aliment_type et categorie obligatoires
+      * poids_kg OBLIGATOIRE (applique les règles de conversion ci-dessus)
+      * prix_par_kg OBLIGATOIRE (= prix ÷ poids_kg)
+      * unite DOIT TOUJOURS être "kg" (sauf si impossibilité de conversion → "inconnu")
+    - categorie: "ÉNERGÉTIQUE", "PROTÉINE", "MINÉRAUX", "VITAMINES"
+    - action: "vente", "achat", "prix_info", "recherche"
+    - age_mois: ENTIER uniquement (pas de décimales: 6.5 → 7)
+    - confiance: 0-100
+    - Si aucun prix trouvé: retourne []
+    - Retourne UNIQUEMENT du JSON valide, rien d'autre
+    - JAMAIS de texte avant ou après le JSON
+    - JAMAIS de commentaires dans le JSON"""
 
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)

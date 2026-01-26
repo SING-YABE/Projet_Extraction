@@ -60,12 +60,22 @@ def process_messages(
             if not aliment.get('aliment_type'):
                 continue
 
+            if not aliment.get('poids_kg') or aliment['poids_kg'] <= 0:
+                logger.warning(
+                    f"⚠️ Aliment ignoré (poids inconnu): {aliment.get('aliment_type')} - {aliment.get('message_original', '')[:50]}")
+                continue
+
+            if aliment.get('prix_par_kg') and aliment['prix_par_kg'] <= 0:
+                logger.warning(f"⚠️ Aliment ignoré (prix_par_kg invalide): {aliment}")
+                continue
+
             aliment_data = {
                 'prix': aliment['prix'],
                 'aliment_type': aliment.get('aliment_type'),
                 'categorie': aliment.get('categorie', 'AUTRE'),
-                'unite': aliment.get('unite', 'sac'),
+                'unite': aliment.get('unite', 'kg'),
                 'poids_kg': aliment.get('poids_kg'),
+                'prix_par_kg': aliment.get('prix_par_kg'),
                 'quantite': aliment.get('quantite', 1),
                 'vendeur': aliment.get('vendeur'),
                 'date': aliment.get('date'),

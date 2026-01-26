@@ -5,6 +5,11 @@ from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
+from typing import Any
+import httpx
+from pathlib import Path
+import whisper
+import json
 
 from models.schemas import WhatsAppWebhookPayload
 from services.gemini_extractor import GeminiPriceExtractor
@@ -16,6 +21,14 @@ from db.database import get_db
 router = APIRouter()
 extractor = GeminiPriceExtractor(settings.GEMINI_API_KEY)
 
+# Créer le dossier audios à la racine du projet
+AUDIO_DIR = Path(__file__).parent.parent / "audios"
+AUDIO_DIR.mkdir(exist_ok=True)
+
+# Charger le modèle Whisper au démarrage
+logger.info("🎤 Chargement du modèle Whisper...")
+whisper_model = whisper.load_model("base")
+logger.info("✅ Modèle Whisper chargé")
 
 SAMPLE_PAYLOAD = """{
   "id": "6232CC122DE27100F01B8E2C11CB4CA2",
@@ -42,10 +55,10 @@ def format_webhook_message(payload: WhatsAppWebhookPayload) -> str:
     date_str = datetime.utcnow().date().isoformat()
 
     sender_name = (
-        payload.from_.pushname
-        or payload.from_.number
-        or payload.number
-        or "unknown"
+            payload.from_.pushname
+            or payload.from_.number
+            or payload.number
+            or "unknown"
     )
 
     lines = [
@@ -66,29 +79,274 @@ def format_webhook_message(payload: WhatsAppWebhookPayload) -> str:
     return "\n".join(lines)
 
 
-@router.post("/whatsapp")
-async def webhook_whatsapp(
-    payload: WhatsAppWebhookPayload,
-    db: Session = Depends(get_db)
-):
-    """Receive WhatsApp messages from Zapwize and extract prices."""
+def format_webhook_message_from_transcription(
+        transcription: str,
+        payload: WhatsAppWebhookPayload
+) -> str:
+    """Format transcription audio en message Gemini-friendly"""
+    date_str = datetime.utcnow().date().isoformat()
+
+    sender_name = (
+            payload.from_.pushname
+            or payload.from_.number
+            or payload.number
+            or "unknown"
+    )
+
+    lines = [
+        f"Date: {date_str}",
+        f"Sender: {sender_name}",
+        "Chat Type: group" if payload.isgroup else "Chat Type: direct",
+        "[MESSAGE AUDIO TRANSCRIT]",
+    ]
+
+    if payload.isgroup and payload.group and payload.group.name:
+        lines.append(f"Group: {payload.group.name}")
+
+    if payload.chatid:
+        lines.append(f"Chat ID: {payload.chatid}")
+
+    lines.append(f"Message: {transcription}")
+
+    return "\n".join(lines)
+
+
+def is_audio_message(content: Any) -> bool:
+    if not content:
+        return False
+
+    # Si c'est déjà un dictionnaire (grâce à Pydantic)
+    if isinstance(content, dict):
+        data = content
+    # Si c'est une chaîne JSON
+    elif isinstance(content, str):
+        try:
+            data = json.loads(content)
+        except (json.JSONDecodeError, TypeError):
+            return False
+    else:
+        return False
+
+    return (
+        isinstance(data, dict) and
+        (
+            data.get('ext') in ['ogg', 'mp3', 'wav', 'm4a'] or
+            'audio' in str(data.get('type', '')).lower() or
+            data.get('custom', {}).get('type') == 'voice'
+        )
+    )
+
+
+def extract_audio_url(content: Any) -> str:
+    """
+    Extrait l'URL depuis le dictionnaire 'content' reçu.
+    """
     try:
-        # 🆕 Logger le payload complet
-        import json
-        logger.info("="*80)
+        # Si c'est déjà un dictionnaire (cas de ton log)
+        if isinstance(content, dict):
+            url = content.get('url')
+        # Si c'est une chaîne JSON
+        elif isinstance(content, str):
+            data = json.loads(content)
+            url = data.get('url') if isinstance(data, dict) else None
+        else:
+            url = None
+
+        if url:
+            logger.info(f"🔗 URL audio extraite avec succès : {url}")
+        else:
+            logger.warning("⚠️ Impossible de trouver le champ 'url' dans content")
+
+        return url
+    except Exception as e:
+        logger.error(f"❌ Erreur lors de l'extraction de l'URL : {e}")
+        return None
+
+
+async def download_audio(url: str, filename: str) -> str:
+    """
+    Télécharge un fichier audio depuis une URL et le sauvegarde.
+
+    Returns:
+        Le chemin du fichier sauvegardé
+    """
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.get(url)
+            response.raise_for_status()
+
+            filepath = AUDIO_DIR / filename
+
+            with open(filepath, "wb") as f:
+                f.write(response.content)
+
+            logger.info(f"✅ Audio sauvegardé: {filepath}")
+            return str(filepath)
+
+    except Exception as e:
+        logger.error(f"❌ Erreur téléchargement audio: {e}")
+        raise
+
+
+def transcribe_audio(audio_path: str) -> str:
+    """
+    Transcrit un fichier audio en texte avec Whisper
+
+    Args:
+        audio_path: Chemin vers le fichier audio
+
+    Returns:
+        Le texte transcrit
+    """
+    try:
+        logger.info(f"🎤 Transcription de {audio_path}...")
+        result = whisper_model.transcribe(
+            audio_path,
+            language="fr",
+            task="transcribe",
+            fp16=False
+        )
+
+        transcription = result["text"].strip()
+
+        logger.info(f"✅ Transcription réussie ({len(transcription)} caractères)")
+        logger.info(f"📝 Texte: {transcription[:200]}...")
+
+        return transcription
+
+    except Exception as e:
+        logger.error(f"❌ Erreur transcription: {e}")
+        raise
+
+
+@router.post("/whatsapp")
+async def webhook_whatsapp(payload: WhatsAppWebhookPayload, db: Session = Depends(get_db)):
+    """Receive WhatsApp messages from Zapwize and extract prices."""
+
+    try:
+        # Logger le payload complet
+        logger.info("=" * 80)
         logger.info("📦 PAYLOAD BRUT COMPLET")
-        logger.info("="*80)
-        logger.info(json.dumps(payload.dict(), indent=2, ensure_ascii=False))
-        logger.info("="*80)
+        logger.info("=" * 80)
+        logger.info(json.dumps(payload.model_dump(), indent=2, ensure_ascii=False))
+        logger.info("=" * 80)
+
         steps = []
-        if payload.type and payload.type.lower() != "text":
+
+        # 🆕 DÉTECTER SI LE CONTENT EST UN AUDIO (JSON)
+        if payload.content and is_audio_message(payload.content):
+            logger.info("🎤 Message audio détecté dans content!")
+            steps.append({"step": "audio.detected", "detail": "audio JSON in content"})
+
+            # Extraire l'URL depuis le JSON content
+            audio_url = extract_audio_url(payload.content)
+
+            if audio_url:
+                # Générer un nom de fichier unique
+                timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+                sender = payload.from_.number or "unknown"
+                filename = f"audio_{sender}_{timestamp}_{payload.id[:8]}.ogg"
+
+                try:
+                    # 1. Télécharger l'audio
+                    audio_path = await download_audio(audio_url, filename)
+                    steps.append({
+                        "step": "audio.downloaded",
+                        "detail": f"path={audio_path}"
+                    })
+
+                    # 2. Transcrire l'audio
+                    transcription = transcribe_audio(audio_path)
+                    steps.append({
+                        "step": "audio.transcribed",
+                        "detail": f"length={len(transcription)} chars"
+                    })
+
+                    # 3. Formater le message transcrit
+                    message = format_webhook_message_from_transcription(transcription, payload)
+
+                    logger.info("=" * 80)
+                    logger.info("📝 MESSAGE TRANSCRIT ENVOYÉ À GEMINI")
+                    logger.info("=" * 80)
+                    logger.info(message)
+                    logger.info("=" * 80)
+
+                    # 4. Extraire les prix du texte transcrit
+                    results = process_messages([message], db, extractor, steps=steps)
+
+                    if extractor.last_raw_response is not None:
+                        steps.append({
+                            "step": "gemini.raw_length",
+                            "detail": f"chars={len(extractor.last_raw_response)}"
+                        })
+                    if extractor.last_error:
+                        steps.append({
+                            "step": "gemini.error",
+                            "detail": extractor.last_error[:200]
+                        })
+
+                    # 5. Retourner les résultats de l'extraction
+                    return {
+                        "success": True,
+                        "audio_processed": True,
+                        "audio_path": audio_path,
+                        "transcription": transcription,
+                        "total_messages": 1,
+                        "extractions_found": results['extractions_found'],
+                        "valid_extractions": results['valid_animals'] + results['aliments_found'],
+                        "saved_to_db": results['saved_animals'] + results['saved_aliments'],
+                        "steps": steps,
+                        "details": {
+                            "animaux": {
+                                "extraits": results['animals_found'],
+                                "valides": results['valid_animals'],
+                                "sauvegardes": results['saved_animals']
+                            },
+                            "aliments": {
+                                "extraits": results['aliments_found'],
+                                "sauvegardes": results['saved_aliments']
+                            }
+                        }
+                    }
+
+                except Exception as e:
+                    logger.error(f"Erreur traitement audio: {e}")
+                    import traceback
+                    logger.error(traceback.format_exc())
+                    steps.append({
+                        "step": "audio.error",
+                        "detail": str(e)
+                    })
+
+                    return {
+                        "success": False,
+                        "error": str(e),
+                        "steps": steps
+                    }
+            else:
+                logger.warning("⚠️ Audio détecté mais URL introuvable dans content")
+                steps.append({
+                    "step": "audio.no_url",
+                    "detail": "URL audio non trouvée dans JSON"
+                })
+
+                return {
+                    "success": True,
+                    "ignored": True,
+                    "reason": "audio without valid URL",
+                    "steps": steps
+                }
+
+        # Messages non-texte (images, vidéos, etc.) via le champ 'type'
+        if payload.type and payload.type.lower() not in ["text", ""]:
             return {
                 "success": True,
                 "ignored": True,
-                "reason": "non-text message",
-                "steps": [{"step": "payload.ignored", "detail": "non-text message"}]
+                "reason": "non-text message type",
+                "steps": [{"step": "payload.ignored", "detail": f"type={payload.type}"}]
             }
 
+        # Messages vides
         if not payload.content or not payload.content.strip():
             return {
                 "success": True,
@@ -97,6 +355,7 @@ async def webhook_whatsapp(
                 "steps": [{"step": "payload.ignored", "detail": "empty content"}]
             }
 
+        # Messages texte normaux
         logger.info(f"Webhook message received: {payload.id}")
         steps.append({"step": "payload.received", "detail": f"id={payload.id}"})
         if payload.content:
@@ -106,18 +365,20 @@ async def webhook_whatsapp(
             })
 
         message = format_webhook_message(payload)
-        # msg formaté pour Gemini
-        logger.info("="*80)
+        logger.info("=" * 80)
         logger.info("MESSAGE FORMATÉ ENVOYÉ À GEMINI")
-        logger.info("="*80)
+        logger.info("=" * 80)
         logger.info(message)
-        logger.info("="*80)
+        logger.info("=" * 80)
+
         preview = " ".join(message.splitlines())[:160]
         steps.append({
             "step": "payload.formatted",
             "detail": f"preview={preview}"
         })
+
         results = process_messages([message], db, extractor, steps=steps)
+
         if extractor.last_raw_response is not None:
             steps.append({
                 "step": "gemini.raw_length",
@@ -151,6 +412,8 @@ async def webhook_whatsapp(
 
     except Exception as exc:
         logger.error(f"Webhook extraction error: {exc}")
+        import traceback
+        logger.error(traceback.format_exc())
         raise HTTPException(500, str(exc))
 
 
