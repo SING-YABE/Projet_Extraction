@@ -13,11 +13,6 @@ class MessageCleanerAndRedirection:
 
     EXPENSE_PATTERNS = [
         r'dépense\s+du\s+',
-        r'achat\s+de\s+',
-        r'j\'ai\s+acheté',
-        r'j\'ai\s+dépensé',
-        r'payé\s+\d+',
-        r'dépense\s*:',
     ]
 
     PRICE_PATTERNS = [
@@ -26,17 +21,10 @@ class MessageCleanerAndRedirection:
         r'disponible\s+à',
         r'prix\s+du',
         r'\d+\s*(fcfa|franc|f|cfa)\s+(le|la)',
+        r'j\'ai\s+',
+        r'vend',
+        r'cherch',
     ]
-
-    CATEGORY_TO_TYPE_ID = {
-        'ANIMAUX': 1,
-        'ALIMENTS': 2,
-        'SALAIRES': 3,
-        'TRANSPORT': 4,
-        'SANTÉ': 5,
-        'MATÉRIEL': 6,
-        'AUTRE': 7,
-    }
 
     def __init__(self):
         self.stats = {
@@ -66,20 +54,23 @@ class MessageCleanerAndRedirection:
 
         for pattern in self.EXPENSE_PATTERNS:
             if re.search(pattern, text_lower, re.IGNORECASE):
-                logger.info(f"💰 Dépense détectée")
+                logger.info(f"💰 Format dépense strict détecté")
                 return 'expense'
 
         for pattern in self.PRICE_PATTERNS:
             if re.search(pattern, text_lower, re.IGNORECASE):
-                logger.info(f"📊 Prix détecté")
+                logger.info(f"📊 Prix/marché détecté")
                 return 'price'
 
         return 'unknown'
 
     def extract_expense_data(self, text: str) -> Optional[Dict[str, Any]]:
         try:
+            if not re.search(r'dépense\s+du\s+', text, re.IGNORECASE):
+                return None
+
             amount_match = re.search(
-                r'(\d+[\s\d]*)\s*(franc|fcfa|f|cfa)',
+                r'(\d+[\s\d]*)\s*(?:franc|fcfa|f)?',
                 text,
                 re.IGNORECASE
             )
@@ -88,33 +79,33 @@ class MessageCleanerAndRedirection:
                 logger.warning("❌ Montant introuvable")
                 return None
 
-            montant_str = amount_match.group(1).replace(' ', '')
-            montant = float(montant_str)
+            montant_str = amount_match.group(1).replace(' ', '').replace('\u202f', '')
 
-            date_match = re.search(
-                r'dépense\s+du\s+(\w+\s+\d{1,2}\s+\w+\s+\d{4})',
-                text,
-                re.IGNORECASE
-            )
+            try:
+                montant = float(montant_str)
+            except ValueError:
+                logger.warning(f"❌ Montant invalide: {montant_str}")
+                return None
 
-            if date_match:
-                expense_date = date.today()
-            else:
-                expense_date = date.today()
+            if montant < 100 or montant > 50_000_000:
+                logger.warning(f"❌ Montant hors limites: {montant}")
+                return None
+
+            expense_date = date.today()
 
             description_match = re.search(
-                r':\s*([^0-9]+?)(?=\s*\d+[\s\d]*\s*(?:franc|fcfa|f|cfa))',
+                r':\s*([^0-9(]+?)(?=\s*\d+)',
                 text,
                 re.IGNORECASE
             )
 
             if description_match:
                 description = description_match.group(1).strip()
+                description = re.sub(r'^(à|de|d\'|pour|en)\s+', '', description, flags=re.IGNORECASE)
             else:
                 description = "Dépense"
 
-            category = self._determine_category(text)
-            type_depense_id = self.CATEGORY_TO_TYPE_ID.get(category, 7)  # 7 = AUTRE
+            type_depense_id = 7
 
             mode_paiement = self._extract_payment_mode(text)
 
@@ -132,37 +123,29 @@ class MessageCleanerAndRedirection:
 
         except Exception as e:
             logger.error(f"❌ Erreur extraction: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
             return None
-
-    def _determine_category(self, text: str) -> str:
-        text_lower = text.lower()
-
-        if any(w in text_lower for w in ['porc', 'truie', 'porcelet', 'verrat', 'cochon']):
-            return 'ANIMAUX'
-        elif any(w in text_lower for w in ['maïs', 'riz', 'son', 'soja', 'aliment']):
-            return 'ALIMENTS'
-        elif any(w in text_lower for w in ['salaire', 'employé', 'personnel']):
-            return 'SALAIRES'
-        elif any(w in text_lower for w in ['transport', 'carburant', 'essence']):
-            return 'TRANSPORT'
-        elif any(w in text_lower for w in ['médicament', 'vaccin', 'vétérinaire']):
-            return 'SANTÉ'
-        elif any(w in text_lower for w in ['outil', 'équipement', 'matériel']):
-            return 'MATÉRIEL'
-        else:
-            return 'AUTRE'
 
     def _extract_payment_mode(self, text: str) -> str:
         text_lower = text.lower()
 
-        if any(w in text_lower for w in ['carte', 'visa', 'mastercard']):
-            return 'Carte bancaire'
-        elif any(w in text_lower for w in ['mobile', 'orange money', 'moov', 'wave']):
-            return 'Mobile Money'
-        elif any(w in text_lower for w in ['chèque']):
+        paren_match = re.search(r'\((.*?)\)', text)
+        if paren_match:
+            payment_text = paren_match.group(1).lower()
+        else:
+            payment_text = text_lower
+
+        if 'espèce' in payment_text or 'cash' in payment_text:
+            return 'Espèces'
+        elif 'dépôt' in payment_text or 'depot' in payment_text:
+            return 'Dépôt'
+        elif 'chèque' in payment_text or 'cheque' in payment_text:
             return 'Chèque'
-        elif any(w in text_lower for w in ['virement', 'banque']):
-            return 'Virement'
+        elif 'virement' in payment_text or 'bancaire' in payment_text:
+            return 'Virement bancaire'
+        elif 'mobile' in payment_text or 'orange' in payment_text or 'moov' in payment_text:
+            return 'Mobile Money'
         else:
             return 'Espèces'
 
@@ -183,7 +166,7 @@ class MessageCleanerAndRedirection:
             self.stats['ignored'] += 1
             return ('ignore', None, None)
 
-        msg_type = self.classify_message(cleaned)
+        msg_type = self.classify_message(text)
 
         if msg_type == 'expense':
             expense_data = self.extract_expense_data(text)
@@ -192,8 +175,9 @@ class MessageCleanerAndRedirection:
                 self.stats['routed_to_expenses'] += 1
                 return ('expense', None, expense_data)
             else:
-                self.stats['routed_to_gemini'] += 1
-                return ('gemini', cleaned, None)
+                logger.warning("⚠️ Format dépense mais extraction échouée → ignoré")
+                self.stats['ignored'] += 1
+                return ('ignore', None, None)
 
         elif msg_type == 'price':
             self.stats['routed_to_gemini'] += 1
