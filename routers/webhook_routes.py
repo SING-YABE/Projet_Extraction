@@ -30,7 +30,7 @@ AUDIO_DIR.mkdir(exist_ok=True)
 
 # Charger le modèle Whisper au démarrage
 logger.info("🎤 Chargement du modèle Whisper...")
-whisper_model = whisper.load_model("medium")
+whisper_model = whisper.load_model("large-v3")
 # Rapide mais moins précis {=====} whisper_model = whisper.load_model("tiny") {=====} ~75 MB
 # Bon compromis (actuel) {=====} whisper_model = whisper.load_model("base") {=====} ~140 MB
 # Meilleure précision {=====} whisper_model = whisper.load_model("small") {=====} ~460 MB {=====}{=====} ou {=====} whisper_model = whisper.load_model("medium")  {=====} ~1.5 GB

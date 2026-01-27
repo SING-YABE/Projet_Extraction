@@ -5,26 +5,68 @@ from utils.logger import logger
 
 
 class MessageCleanerAndRedirection:
+    """Router intelligent pour les messages WhatsApp"""
+
     NOISE_WORDS = [
         'bonjour', 'bonsoir', 'salut', 'hello', 'coucou', 'bsr', 'bjr',
         'merci', 'stp', 's\'il te plaît', 's\'il vous plaît', 'svp',
         'euh', 'hein', 'bon', 'voilà', 'alors', 'donc',
     ]
 
+    # 🆕 Patterns de dépenses plus flexibles
     EXPENSE_PATTERNS = [
-        r'dépense\s+du\s+',
+        # Format strict original
+        r'dépense\s+du\s+\w+\s+\d{1,2}\s+\w+\s+\d{4}',
+
+        # Format flexible (erreurs de transcription)
+        r'dépense[s]?\s+de\s+\w+\s+\d{1,2}\s+\w+\s+\d{4}',
+
+        # Détection combinée robuste
+        r'(?:dépense|achat)[s]?.*?\d{1,2}\s+\w+\s+\d{4}.*?(?:à|de|pour)\s+\d+\s*(?:franc|f)',
     ]
 
     PRICE_PATTERNS = [
-        r'(porco|porcelet|truie|verrat|porc|cochon)',
-        r'(maïs|riz|son de|soja|tourteau)',
-        r'disponible\s+à',
-        r'prix\s+du',
-        r'\d+\s*(fcfa|franc|f|cfa)\s+(le|la)',
-        r'j\'ai\s+',
-        r'vend',
-        r'cherch',
+        # Animaux
+        r'\b(porco|porcelet|truie|verrat|porc|cochon)\b',
+
+        # Aliments mentionnés
+        r'\b(son\s+de\s+riz|son\s+de\s+blé|son\s+de\s+maïs|maïs|riz|soja|tourteau)\b',
+
+        # Aliments avec contexte (distance augmentée)
+        r'\b(maïs|riz|soja|tourteau|son)\b.{0,50}\b\d+',
+        r'\d+.{0,50}\b(maïs|riz|soja|tourteau|son)\b',
+
+        # Prix avec "/" (ex: "100000f/tonne")
+        r'\d+\s*[fF]\s*/\s*(tonne|sac|kg|kilo)',
+
+        # Prix/vente explicites
+        r'\b(disponible|vend|cherch|prix)\s+(à|du|de)\s+\d+',
+        r'\d+\s*(fcfa|franc|f|cfa)\s+(le|la|par)',
+
+        # Possession + aliment
+        r'j\'ai\s+(?:du|des|un|une)\s+(maïs|riz|soja|porc|tourteau)',
+
+        # Format "bon pour" (aliment pour animaux)
+        r'\bbon\s+pour\s+(les\s+)?(volailles|bétails|porcs|poulets)',
     ]
+
+    CONVERSATIONAL_PATTERNS = [
+        r'^\s*(tu|vous|comment|ça|ca)\s+(vas|allez|va)',
+        r'^\s*(comment|ca|ça)\s+(va|vas)',
+        r'^\s*(ok|d\'accord|oui|non|merci|peut-être)\s*[!?\.]*\s*$',
+        r'^\s*[!?\.]+\s*$',
+    ]
+
+    # Mapping des catégories vers les IDs de TypeDepense
+    CATEGORY_TO_TYPE_ID = {
+        'ANIMAUX': 1,
+        'ALIMENTS': 2,
+        'SALAIRES': 3,
+        'TRANSPORT': 4,
+        'SANTÉ': 5,
+        'MATÉRIEL': 6,
+        'AUTRE': 7,
+    }
 
     def __init__(self):
         self.stats = {
@@ -35,6 +77,7 @@ class MessageCleanerAndRedirection:
         }
 
     def clean_message(self, text: str) -> str:
+        """Nettoie le message en supprimant les mots parasites."""
         if not text:
             return ""
 
@@ -50,13 +93,22 @@ class MessageCleanerAndRedirection:
         return cleaned
 
     def classify_message(self, text: str) -> str:
+        """Classifie avec priorité: DÉPENSE > CONVERSATIONNEL > PRIX"""
         text_lower = text.lower()
 
+        # 1. Vérifier dépense D'ABORD (priorité haute)
         for pattern in self.EXPENSE_PATTERNS:
             if re.search(pattern, text_lower, re.IGNORECASE):
                 logger.info(f"💰 Format dépense strict détecté")
                 return 'expense'
 
+        # 2. Vérifier conversationnel
+        for pattern in self.CONVERSATIONAL_PATTERNS:
+            if re.search(pattern, text_lower, re.IGNORECASE):
+                logger.info(f"💬 Message conversationnel détecté")
+                return 'conversational'
+
+        # 3. Vérifier prix (priorité basse)
         for pattern in self.PRICE_PATTERNS:
             if re.search(pattern, text_lower, re.IGNORECASE):
                 logger.info(f"📊 Prix/marché détecté")
@@ -64,16 +116,105 @@ class MessageCleanerAndRedirection:
 
         return 'unknown'
 
+    def _determine_category(self, text: str) -> str:
+        """
+        Détermine la catégorie de la dépense selon les mots-clés.
+
+        Priorité : ANIMAUX > ALIMENTS > SALAIRES > TRANSPORT > SANTÉ > MATÉRIEL > AUTRE
+        """
+        text_lower = text.lower()
+
+        # ANIMAUX (priorité 1)
+        if any(w in text_lower for w in [
+            'porc', 'truie', 'porcelet', 'verrat', 'cochon',
+            'porco', 'goret', 'animal', 'bétail'
+        ]):
+            logger.info("   📂 Catégorie détectée: ANIMAUX")
+            return 'ANIMAUX'
+
+        # ALIMENTS (priorité 2)
+        elif any(w in text_lower for w in [
+            'maïs', 'riz', 'son', 'soja', 'aliment', 'tourteau',
+            'blé', 'mil', 'sorgho', 'manioc', 'provende',
+            'complément', 'minéral', 'vitamine', 'concentré',
+            'farine', 'drêche', 'nourriture', 'alimentation'
+        ]):
+            logger.info("   📂 Catégorie détectée: ALIMENTS")
+            return 'ALIMENTS'
+
+        # SALAIRES (priorité 3)
+        elif any(w in text_lower for w in [
+            'salaire', 'employé', 'personnel', 'paie', 'paye',
+            'rémunération', 'salarié', 'travailleur', 'main d\'oeuvre',
+            'gardien', 'ouvrier', 'agent'
+        ]):
+            logger.info("   📂 Catégorie détectée: SALAIRES")
+            return 'SALAIRES'
+
+        # TRANSPORT (priorité 4)
+        elif any(w in text_lower for w in [
+            'transport', 'carburant', 'essence', 'gasoil', 'diesel',
+            'taxi', 'moto', 'véhicule', 'voiture', 'camion',
+            'livraison', 'déplacement', 'voyage'
+        ]):
+            logger.info("   📂 Catégorie détectée: TRANSPORT")
+            return 'TRANSPORT'
+
+        # SANTÉ (priorité 5)
+        elif any(w in text_lower for w in [
+            'médicament', 'vaccin', 'vétérinaire', 'santé', 'soin',
+            'traitement', 'antibiotique', 'vitamine', 'vermifuge',
+            'consultation', 'urgence', 'maladie'
+        ]):
+            logger.info("   📂 Catégorie détectée: SANTÉ")
+            return 'SANTÉ'
+
+        # MATÉRIEL (priorité 6)
+        elif any(w in text_lower for w in [
+            'outil', 'équipement', 'matériel', 'machine',
+            'abreuvoir', 'mangeoire', 'clôture', 'grillage',
+            'bâche', 'seau', 'pelle', 'brouette',
+            'construction', 'réparation', 'entretien'
+        ]):
+            logger.info("   📂 Catégorie détectée: MATÉRIEL")
+            return 'MATÉRIEL'
+
+        # AUTRE (par défaut)
+        else:
+            logger.info("   📂 Catégorie détectée: AUTRE")
+            return 'AUTRE'
+
     def extract_expense_data(self, text: str) -> Optional[Dict[str, Any]]:
+        """
+        Extrait les dépenses au format:
+        "Dépense du Mercredi 26 Janvier 2026 : achat de porc à 25 000 Francs (en espèce)"
+        OU avec erreurs de transcription:
+        "dépenses de maigreté 26 janvier 2026 achats de porc à 25000 francs en espèces"
+        """
         try:
-            if not re.search(r'dépense\s+du\s+', text, re.IGNORECASE):
+            # Vérifier qu'au moins un pattern de dépense matche
+            has_expense_pattern = False
+            for pattern in self.EXPENSE_PATTERNS:
+                if re.search(pattern, text, re.IGNORECASE):
+                    has_expense_pattern = True
+                    break
+
+            if not has_expense_pattern:
                 return None
 
+            # Extraire montant APRÈS "à", "de", etc.
             amount_match = re.search(
-                r'(\d+[\s\d]*)\s*(?:franc|fcfa|f)?',
+                r'(?:à|de|pour|coût|prix)\s+(\d+[\s\d]*)\s*(?:franc|fcfa|f|cfa)?',
                 text,
                 re.IGNORECASE
             )
+
+            if not amount_match:
+                amount_match = re.search(
+                    r':\s*[^0-9]*?(\d+[\s\d]+)\s*(?:franc|fcfa|f|cfa)?',
+                    text,
+                    re.IGNORECASE
+                )
 
             if not amount_match:
                 logger.warning("❌ Montant introuvable")
@@ -89,12 +230,14 @@ class MessageCleanerAndRedirection:
 
             if montant < 100 or montant > 50_000_000:
                 logger.warning(f"❌ Montant hors limites: {montant}")
+                logger.warning(f"   Message: {text}")
                 return None
 
             expense_date = date.today()
 
+            # Description (entre ":" et le montant)
             description_match = re.search(
-                r':\s*([^0-9(]+?)(?=\s*\d+)',
+                r':\s*([^0-9(]+?)(?=\s*(?:à|de|pour|coût|prix)\s*\d+)',
                 text,
                 re.IGNORECASE
             )
@@ -103,9 +246,20 @@ class MessageCleanerAndRedirection:
                 description = description_match.group(1).strip()
                 description = re.sub(r'^(à|de|d\'|pour|en)\s+', '', description, flags=re.IGNORECASE)
             else:
-                description = "Dépense"
+                # Fallback pour format sans ":"
+                desc_match = re.search(r'achat[s]?\s+(?:de|d\')\s+([^0-9]+)', text, re.IGNORECASE)
+                if desc_match:
+                    description = desc_match.group(1).strip()[:100]
+                else:
+                    desc_fallback = re.search(r':\s*([^0-9]+)', text)
+                    if desc_fallback:
+                        description = desc_fallback.group(1).strip()[:100]
+                    else:
+                        description = "Dépense"
 
-            type_depense_id = 7
+            # Déterminer la catégorie automatiquement
+            category = self._determine_category(text)
+            type_depense_id = self.CATEGORY_TO_TYPE_ID.get(category, 7)
 
             mode_paiement = self._extract_payment_mode(text)
 
@@ -119,6 +273,11 @@ class MessageCleanerAndRedirection:
             }
 
             logger.info(f"✅ Dépense extraite: {expense_data}")
+            logger.info(f"   💰 Montant: {montant} FCFA")
+            logger.info(f"   📝 Description: {description}")
+            logger.info(f"   🏷️  Catégorie: {category} (ID: {type_depense_id})")
+            logger.info(f"   💳 Paiement: {mode_paiement}")
+
             return expense_data
 
         except Exception as e:
@@ -128,6 +287,7 @@ class MessageCleanerAndRedirection:
             return None
 
     def _extract_payment_mode(self, text: str) -> str:
+        """Extrait le mode de paiement"""
         text_lower = text.lower()
 
         paren_match = re.search(r'\((.*?)\)', text)
@@ -144,7 +304,7 @@ class MessageCleanerAndRedirection:
             return 'Chèque'
         elif 'virement' in payment_text or 'bancaire' in payment_text:
             return 'Virement bancaire'
-        elif 'mobile' in payment_text or 'orange' in payment_text or 'moov' in payment_text:
+        elif 'mobile' in payment_text or 'orange' in payment_text or 'moov' in payment_text or 'wave' in payment_text:
             return 'Mobile Money'
         else:
             return 'Espèces'
@@ -154,6 +314,7 @@ class MessageCleanerAndRedirection:
             text: str,
             sender: str = "unknown"
     ) -> Tuple[str, Optional[str], Optional[Dict[str, Any]]]:
+        """Route le message vers la destination appropriée."""
         self.stats['total_processed'] += 1
 
         logger.info("=" * 80)
@@ -183,12 +344,19 @@ class MessageCleanerAndRedirection:
             self.stats['routed_to_gemini'] += 1
             return ('gemini', cleaned, None)
 
+        elif msg_type == 'conversational':
+            logger.info("💬 Message conversationnel → ignoré")
+            self.stats['ignored'] += 1
+            return ('ignore', None, None)
+
         else:
-            self.stats['routed_to_gemini'] += 1
-            return ('gemini', cleaned, None)
+            logger.warning("❓ Type de message inconnu → ignoré")
+            self.stats['ignored'] += 1
+            return ('ignore', None, None)
 
     def get_stats(self) -> Dict[str, int]:
         return self.stats.copy()
 
 
+# Instance globale
 message_cleaner_and_redirection = MessageCleanerAndRedirection()
