@@ -6,7 +6,7 @@ from sqlalchemy import func, desc
 from datetime import datetime, timedelta, date
 from typing import List, Optional
 
-from db.database import Price, PrixAliment, Prediction
+from db.database import Price, PrixAliment, Prediction, Depense
 from models.schemas import PriceCreate
 
 
@@ -239,3 +239,11 @@ def get_aliment_statistics(db: Session) -> dict:
         'by_category': by_category,
         'by_aliment': by_aliment
     }
+
+# ==================== EXPENSES RECORDER ========================
+def create_depense(db: Session, depense_data: dict) -> Depense:
+    """Créer une nouvelle dépense"""
+    db_depense = Depense(**depense_data)
+    db.add(db_depense)
+    db.flush()
+    return db_depense

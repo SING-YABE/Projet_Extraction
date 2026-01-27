@@ -1,22 +1,25 @@
 """
 Webhook routes for inbound WhatsApp messages.
 """
+import json
 from datetime import datetime
+from pathlib import Path
+from typing import Any
+
+import httpx
+import whisper
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
-from typing import Any
-import httpx
-from pathlib import Path
-import whisper
-import json
 
+from db.database import get_db
 from models.schemas import WhatsAppWebhookPayload
-from services.gemini_extractor import GeminiPriceExtractor
 from services.extraction_workflow import process_messages
+from services.gemini_extractor import GeminiPriceExtractor
 from utils.config import settings
 from utils.logger import logger
-from db.database import get_db
+from utils.message_cleaner_and_redirection import message_cleaner_and_redirection
+from db.crud import create_depense
 
 router = APIRouter()
 extractor = GeminiPriceExtractor(settings.GEMINI_API_KEY)
@@ -27,7 +30,10 @@ AUDIO_DIR.mkdir(exist_ok=True)
 
 # Charger le modèle Whisper au démarrage
 logger.info("🎤 Chargement du modèle Whisper...")
-whisper_model = whisper.load_model("base")
+whisper_model = whisper.load_model("small")
+# Rapide mais moins précis {=====} whisper_model = whisper.load_model("tiny") {=====} ~75 MB
+# Bon compromis (actuel) {=====} whisper_model = whisper.load_model("base") {=====} ~140 MB
+# Meilleure précision {=====} whisper_model = whisper.load_model("small") {=====} ~460 MB {=====}{=====} ou {=====} whisper_model = whisper.load_model("medium")  {=====} ~1.5 GB
 logger.info("✅ Modèle Whisper chargé")
 
 SAMPLE_PAYLOAD = """{
@@ -263,51 +269,107 @@ async def webhook_whatsapp(payload: WhatsAppWebhookPayload, db: Session = Depend
                     })
 
                     # 3. Formater le message transcrit
-                    message = format_webhook_message_from_transcription(transcription, payload)
+                    message_brut = transcription
 
                     logger.info("=" * 80)
-                    logger.info("📝 MESSAGE TRANSCRIT ENVOYÉ À GEMINI")
+                    logger.info("📝 TRANSCRIPTION BRUTE")
                     logger.info("=" * 80)
-                    logger.info(message)
+                    logger.info(message_brut)
                     logger.info("=" * 80)
 
-                    # 4. Extraire les prix du texte transcrit
-                    results = process_messages([message], db, extractor, steps=steps)
+                    # 🆕 4. ROUTER LE MESSAGE
+                    destination, cleaned_text, expense_data = message_cleaner_and_redirection.redirection_message(
+                        text=message_brut,
+                        sender=payload.from_.number or "unknown"
+                    )
 
-                    if extractor.last_raw_response is not None:
-                        steps.append({
-                            "step": "gemini.raw_length",
-                            "detail": f"chars={len(extractor.last_raw_response)}"
-                        })
-                    if extractor.last_error:
-                        steps.append({
-                            "step": "gemini.error",
-                            "detail": extractor.last_error[:200]
-                        })
+                    if destination == 'expense':
+                        logger.info("💰 DÉPENSE DÉTECTÉE → Sauvegarde directe en base")
 
-                    # 5. Retourner les résultats de l'extraction
-                    return {
-                        "success": True,
-                        "audio_processed": True,
-                        "audio_path": audio_path,
-                        "transcription": transcription,
-                        "total_messages": 1,
-                        "extractions_found": results['extractions_found'],
-                        "valid_extractions": results['valid_animals'] + results['aliments_found'],
-                        "saved_to_db": results['saved_animals'] + results['saved_aliments'],
-                        "steps": steps,
-                        "details": {
-                            "animaux": {
-                                "extraits": results['animals_found'],
-                                "valides": results['valid_animals'],
-                                "sauvegardes": results['saved_animals']
-                            },
-                            "aliments": {
-                                "extraits": results['aliments_found'],
-                                "sauvegardes": results['saved_aliments']
+                        try:
+                            create_depense(db, expense_data)
+                            db.commit()
+
+                            steps.append({"step": "expense.saved", "detail": f"montant={expense_data['montant']}"})
+
+                            return {
+                                "success": True,
+                                "type": "expense",
+                                "audio_processed": True,
+                                "audio_path": audio_path,
+                                "transcription": message_brut,
+                                "expense_saved": True,
+                                "data": expense_data,
+                                "steps": steps
+                            }
+                        except Exception as e:
+                            logger.error(f"❌ Erreur sauvegarde dépense: {e}")
+                            db.rollback()
+                            steps.append({"step": "expense.error", "detail": str(e)})
+
+                            return {
+                                "success": False,
+                                "error": f"Erreur sauvegarde dépense: {str(e)}",
+                                "steps": steps
+                            }
+
+                    elif destination == 'gemini':
+                        logger.info("📊 PRIX DÉTECTÉ → Extraction Gemini")
+
+                        message = format_webhook_message_from_transcription(cleaned_text, payload)
+
+                        logger.info("=" * 80)
+                        logger.info("📝 MESSAGE NETTOYÉ ENVOYÉ À GEMINI")
+                        logger.info("=" * 80)
+                        logger.info(message)
+                        logger.info("=" * 80)
+
+                        results = process_messages([message], db, extractor, steps=steps)
+
+                        if extractor.last_raw_response is not None:
+                            steps.append({
+                                "step": "gemini.raw_length",
+                                "detail": f"chars={len(extractor.last_raw_response)}"
+                            })
+                        if extractor.last_error:
+                            steps.append({
+                                "step": "gemini.error",
+                                "detail": extractor.last_error[:200]
+                            })
+
+                        # 5. Retourner les résultats de l'extraction
+                        return {
+                            "success": True,
+                            "audio_processed": True,
+                            "audio_path": audio_path,
+                            "transcription": message_brut,
+                            "total_messages": 1,
+                            "extractions_found": results['extractions_found'],
+                            "valid_extractions": results['valid_animals'] + results['aliments_found'],
+                            "saved_to_db": results['saved_animals'] + results['saved_aliments'],
+                            "steps": steps,
+                            "details": {
+                                "animaux": {
+                                    "extraits": results['animals_found'],
+                                    "valides": results['valid_animals'],
+                                    "sauvegardes": results['saved_animals']
+                                },
+                                "aliments": {
+                                    "extraits": results['aliments_found'],
+                                    "sauvegardes": results['saved_aliments']
+                                }
                             }
                         }
-                    }
+
+                    else:  # ignore
+                        logger.warning("⚠️ Message ignoré (trop court ou non pertinent)")
+                        return {
+                            "success": True,
+                            "ignored": True,
+                            "reason": "message too short or irrelevant",
+                            "transcription": message_brut,
+                            "steps": steps
+                        }
 
                 except Exception as e:
                     logger.error(f"Erreur traitement audio: {e}")
@@ -347,68 +409,107 @@ async def webhook_whatsapp(payload: WhatsAppWebhookPayload, db: Session = Depend
             }
 
         # Messages vides
-        if not payload.content or not payload.content.strip():
-            return {
-                "success": True,
-                "ignored": True,
-                "reason": "empty content",
-                "steps": [{"step": "payload.ignored", "detail": "empty content"}]
-            }
+        if not payload.content:
+            return {"success": True, "ignored": True, "reason": "empty content"}
+
+        if isinstance(payload.content, str) and not payload.content.strip():
+            return {"success": True, "ignored": True, "reason": "empty text content"}
 
         # Messages texte normaux
         logger.info(f"Webhook message received: {payload.id}")
-        steps.append({"step": "payload.received", "detail": f"id={payload.id}"})
-        if payload.content:
+
+        # 🆕 ROUTER LE MESSAGE TEXTE
+        destination, cleaned_text, expense_data = message_cleaner_and_redirection.redirection_message(
+            text=payload.content,
+            sender=payload.from_.number or "unknown"
+        )
+
+        if destination == 'expense':
+            # 💰 Dépense dans un message texte
+            logger.info("💰 DÉPENSE DÉTECTÉE dans texte → Sauvegarde")
+
+            try:
+                create_depense(db, expense_data)
+                db.commit()
+
+                return {
+                    "success": True,
+                    "type": "expense",
+                    "expense_saved": True,
+                    "data": expense_data
+                }
+            except Exception as e:
+                logger.error(f"❌ Erreur sauvegarde dépense: {e}")
+                db.rollback()
+                return {
+                    "success": False,
+                    "error": f"Erreur sauvegarde dépense: {str(e)}"
+                }
+
+        elif destination == 'gemini':
+            # 📊 Prix dans un message texte → Workflow existant
+            logger.info("📊 PRIX DÉTECTÉ dans texte → Extraction Gemini")
+
+            steps.append({"step": "payload.received", "detail": f"id={payload.id}"})
+
+            # Créer un payload temporaire avec le texte nettoyé
+            payload_temp = payload.model_copy()
+            payload_temp.content = cleaned_text
+
+            message = format_webhook_message(payload_temp)
+
+            logger.info("=" * 80)
+            logger.info("MESSAGE NETTOYÉ ENVOYÉ À GEMINI")
+            logger.info("=" * 80)
+            logger.info(message)
+            logger.info("=" * 80)
+
+            preview = " ".join(message.splitlines())[:160]
             steps.append({
-                "step": "payload.content",
-                "detail": f"length={len(payload.content)}"
+                "step": "payload.formatted",
+                "detail": f"preview={preview}"
             })
 
-        message = format_webhook_message(payload)
-        logger.info("=" * 80)
-        logger.info("MESSAGE FORMATÉ ENVOYÉ À GEMINI")
-        logger.info("=" * 80)
-        logger.info(message)
-        logger.info("=" * 80)
+            # 🔄 Utiliser le workflow existant
+            results = process_messages([message], db, extractor, steps=steps)
 
-        preview = " ".join(message.splitlines())[:160]
-        steps.append({
-            "step": "payload.formatted",
-            "detail": f"preview={preview}"
-        })
+            if extractor.last_raw_response is not None:
+                steps.append({
+                    "step": "gemini.raw_length",
+                    "detail": f"chars={len(extractor.last_raw_response)}"
+                })
+            if extractor.last_error:
+                steps.append({
+                    "step": "gemini.error",
+                    "detail": extractor.last_error[:200]
+                })
 
-        results = process_messages([message], db, extractor, steps=steps)
-
-        if extractor.last_raw_response is not None:
-            steps.append({
-                "step": "gemini.raw_length",
-                "detail": f"chars={len(extractor.last_raw_response)}"
-            })
-        if extractor.last_error:
-            steps.append({
-                "step": "gemini.error",
-                "detail": extractor.last_error[:200]
-            })
-
-        return {
-            "success": True,
-            "total_messages": 1,
-            "extractions_found": results['extractions_found'],
-            "valid_extractions": results['valid_animals'] + results['aliments_found'],
-            "saved_to_db": results['saved_animals'] + results['saved_aliments'],
-            "steps": steps,
-            "details": {
-                "animaux": {
-                    "extraits": results['animals_found'],
-                    "valides": results['valid_animals'],
-                    "sauvegardes": results['saved_animals']
-                },
-                "aliments": {
-                    "extraits": results['aliments_found'],
-                    "sauvegardes": results['saved_aliments']
+            return {
+                "success": True,
+                "total_messages": 1,
+                "extractions_found": results['extractions_found'],
+                "valid_extractions": results['valid_animals'] + results['aliments_found'],
+                "saved_to_db": results['saved_animals'] + results['saved_aliments'],
+                "steps": steps,
+                "details": {
+                    "animaux": {
+                        "extraits": results['animals_found'],
+                        "valides": results['valid_animals'],
+                        "sauvegardes": results['saved_animals']
+                    },
+                    "aliments": {
+                        "extraits": results['aliments_found'],
+                        "sauvegardes": results['saved_aliments']
+                    }
                 }
             }
-        }
+
+        else:  # ignore
+            return {
+                "success": True,
+                "ignored": True,
+                "reason": "message too short or irrelevant"
+            }
 
     except Exception as exc:
         logger.error(f"Webhook extraction error: {exc}")

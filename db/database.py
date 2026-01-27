@@ -1,9 +1,10 @@
 """
 Database connection (PostgreSQL)
 """
-from sqlalchemy import create_engine, Column, Integer, String, Float, Boolean, Date, DateTime, Text
+from sqlalchemy import create_engine, Column, Integer, String, Float, Boolean, Date, DateTime, Text, BigInteger, \
+    ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 from datetime import datetime
 
 from utils.config import settings
@@ -68,6 +69,36 @@ class Prediction(Base):
     confiance = Column(String(20))
     model_version = Column(String(50))
     created_at = Column(DateTime, default=datetime.now)
+
+class Depense(Base):
+    __tablename__ = "depense"
+
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    date = Column(Date, nullable=False)  # LocalDate → Date
+    type_depense_id = Column(BigInteger, ForeignKey('type_depense.id'), nullable=False)
+    description = Column(String, nullable=False)
+    montant = Column(Float, nullable=False)  # Double → Float
+    mode_paiement = Column(String, nullable=False)
+    observations = Column(String, nullable=True)
+
+    type_depense = relationship("TypeDepense", back_populates="depenses")
+
+
+class TypeDepense(Base):
+    __tablename__ = "type_depense"
+
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    nom = Column(String, nullable=False)
+
+    depenses = relationship("Depense", back_populates="type_depense")
+# INSERT INTO type_depense (id, nom) VALUES
+# (1, 'ANIMAUX'),
+# (2, 'ALIMENTS'),
+# (3, 'SALAIRES'),
+# (4, 'TRANSPORT'),
+# (5, 'SANTÉ'),
+# (6, 'MATÉRIEL'),
+# (7, 'AUTRE');
 
 
 def get_db():
