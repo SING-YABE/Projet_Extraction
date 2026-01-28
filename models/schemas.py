@@ -3,7 +3,7 @@ All Pydantic schemas
 """
 from pydantic import BaseModel, ConfigDict, Field
 from typing import List, Optional, Dict, Any, Union
-from datetime import date
+from datetime import date as dt_date
 from models.price import PriceCreate, PriceResponse, PriceInDB
 from models.prediction import ( PredictionResponse, TrainingResponse, OpportunityResponse )
 
@@ -75,7 +75,7 @@ class WhatsAppWebhookPayload(BaseModel):
 
 class DepenseCreate(BaseModel):
     """Schéma pour créer une dépense"""
-    date: date = Field(..., description="Date de la dépense (YYYY-MM-DD)")
+    date: dt_date = Field(..., description="Date de la dépense (YYYY-MM-DD)")
     type_depense_id: int = Field(..., ge=1, le=7, description="ID du type de dépense (1=ANIMAUX, 2=ALIMENTS, 3=SALAIRES, 4=TRANSPORT, 5=SANTÉ, 6=MATÉRIEL, 7=AUTRE)")
     description: str = Field(..., min_length=1, max_length=200, description="Description de la dépense")
     montant: float = Field(..., gt=0, description="Montant en FCFA")
@@ -98,7 +98,7 @@ class DepenseCreate(BaseModel):
 
 class DepenseUpdate(BaseModel):
     """Schéma pour mettre à jour une dépense (tous les champs optionnels)"""
-    date: Optional[date] = None
+    date: Optional[dt_date] = None
     type_depense_id: Optional[int] = Field(None, ge=1, le=7)
     description: Optional[str] = Field(None, min_length=1, max_length=200)
     montant: Optional[float] = Field(None, gt=0)
@@ -109,7 +109,7 @@ class DepenseUpdate(BaseModel):
 class DepenseResponse(BaseModel):
     """Schéma de réponse pour une dépense"""
     id: int
-    date: date
+    date: dt_date
     type_depense_id: int
     description: str
     montant: float
