@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from routers import extraction_routes, prediction_routes, stats_routes, aliment_routes, aliment_prediction_routes, webhook_routes
+from routers import extraction_routes, prediction_routes, stats_routes, aliment_routes, aliment_prediction_routes, webhook_routes, expense_routes
 from db.database import engine, Base
 from utils.config import settings
 from utils.logger import logger
@@ -44,6 +44,7 @@ app.include_router(stats_routes.router, prefix="/api", tags=["Statistics"])
 app.include_router(aliment_routes.router, prefix="/api", tags=["Aliments"])
 app.include_router(aliment_prediction_routes.router, prefix="/api", tags=["Aliments-Prediction"])
 app.include_router(webhook_routes.router, prefix="/webhook", tags=["Webhook"])
+app.include_router(expense_routes.router, prefix="/expenses", tags=["Expenses"])
 
 @app.get("/")
 async def root():
