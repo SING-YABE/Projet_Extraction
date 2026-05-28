@@ -2,10 +2,39 @@
 Service d'extraction avec Gemini AI
 """
 import google.generativeai as genai
-from typing import List, Dict
+from typing import List, Dict, Optional, Callable
 import json
 import time
 from utils.logger import logger
+
+
+def _rescue_truncated_json(text: str) -> List[Dict]:
+    """
+    Tente de récupérer les objets JSON complets d'une réponse tronquée.
+    Stratégie : extraire tous les objets {...} fermés avant la coupure.
+    Retourne une liste (vide si rien de récupérable).
+    """
+    recovered = []
+    depth = 0
+    start = None
+
+    for i, ch in enumerate(text):
+        if ch == '{':
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0 and start is not None:
+                candidate = text[start:i + 1]
+                try:
+                    obj = json.loads(candidate)
+                    recovered.append(obj)
+                except json.JSONDecodeError:
+                    pass
+                start = None
+
+    return recovered
 
 
 class GeminiPriceExtractor:
@@ -168,6 +197,11 @@ class GeminiPriceExtractor:
     - JAMAIS de texte avant ou après le JSON
     - JAMAIS de commentaires dans le JSON"""
 
+    # gemini-2.5-flash supporte 65536 tokens en sortie.
+    # 8000 était trop court pour 100 messages → troncature systématique.
+    # 32000 donne une large marge sans dépasser la limite du modèle.
+    MAX_OUTPUT_TOKENS = 32000
+
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel('gemini-2.5-flash')
@@ -192,7 +226,7 @@ class GeminiPriceExtractor:
                 prompt,
                 generation_config={
                     'temperature': 0,
-                    'max_output_tokens': 8000,
+                    'max_output_tokens': self.MAX_OUTPUT_TOKENS,
                 }
             )
 
@@ -200,17 +234,15 @@ class GeminiPriceExtractor:
             try:
                 text = response.text.strip()
             except ValueError:
-                # Response is not simple text, extract from parts
                 if response.candidates and len(response.candidates) > 0:
                     parts = response.candidates[0].content.parts
                     text = "".join([part.text for part in parts if hasattr(part, 'text')]).strip()
-                    logger.info(f"Gemini response from parts (complex response)")
+                    logger.info("Gemini response from parts (complex response)")
                 else:
                     logger.warning("Gemini response has no text content")
                     self.last_error = "Gemini response has no text content"
                     return []
 
-            # LOG COMPLETE GEMINI RESPONSE
             logger.info("="*60)
             logger.info(f"📤 GEMINI RAW RESPONSE (length: {len(text)} chars)")
             logger.info(f"First 500 chars: {text[:500]}")
@@ -219,7 +251,6 @@ class GeminiPriceExtractor:
             logger.info("="*60)
             self.last_raw_response = text
 
-            # SAVE FULL RESPONSE TO DEDICATED FILE
             logger.info("="*80)
             logger.info(f"BATCH RESPONSE - Length: {len(text)} characters")
             logger.info("="*80)
@@ -227,7 +258,7 @@ class GeminiPriceExtractor:
             logger.info(text)
             logger.info("="*80 + "\n")
 
-            # Clean markdown
+            # Nettoyer les balises markdown
             original_text = text
             if text.startswith('```json'):
                 text = text.replace('```json\n', '').replace('\n```', '')
@@ -236,8 +267,8 @@ class GeminiPriceExtractor:
                 text = text.replace('```\n', '').replace('\n```', '')
                 logger.info("✂️  Removed ``` markdown wrapper")
 
-            # Check if text is empty or not JSON
             text = text.strip()
+
             if not text:
                 logger.warning("⚠️  Gemini returned empty response after cleaning")
                 logger.debug(f"Original text was: {original_text[:200]}")
@@ -245,32 +276,45 @@ class GeminiPriceExtractor:
                 return []
 
             if not (text.startswith('[') or text.startswith('{')):
-                logger.warning(f"⚠️  Gemini response is not JSON")
-                logger.warning(f"Text starts with: {text[:100]}")
+                logger.warning(f"⚠️  Gemini response is not JSON — starts with: {text[:100]}")
                 self.last_error = "Gemini response is not JSON"
                 return []
 
-            # Parse JSON
-            results = json.loads(text)
-            logger.info(f"✅ Successfully parsed JSON: {len(results) if isinstance(results, list) else 1} items")
-            self.last_error = None
+            # --- Tentative 1 : parse normal ---
+            try:
+                results = json.loads(text)
+                logger.info(f"✅ JSON parsed OK: {len(results) if isinstance(results, list) else 1} items")
+                self.last_error = None
 
-            # Log extracted data summary
-            if isinstance(results, list) and results:
-                animals = [r.get('animal_type', 'unknown') for r in results if r.get('type') == 'animal']
-                aliments = [r.get('aliment_type', 'unknown') for r in results if r.get('type') == 'aliment']
-                logger.info(f"📊 Extracted: {len(results)} items")
-                logger.info(f"   Animaux: {len(animals)} ({', '.join(set(animals))})")
-                logger.info(f"   Aliments: {len(aliments)} ({', '.join(set(aliments))})")
+                if isinstance(results, list) and results:
+                    animals = [r.get('animal_type', 'unknown') for r in results if r.get('type') == 'animal']
+                    aliments = [r.get('aliment_type', 'unknown') for r in results if r.get('type') == 'aliment']
+                    logger.info(f"📊 Extracted: {len(results)} items")
+                    logger.info(f"   Animaux: {len(animals)} ({', '.join(set(animals))})")
+                    logger.info(f"   Aliments: {len(aliments)} ({', '.join(set(aliments))})")
 
-            return results if isinstance(results, list) else []
+                return results if isinstance(results, list) else []
 
-        except json.JSONDecodeError as e:
-            logger.error(f"❌ JSON parsing error: {e}")
-            if 'text' in locals():
-                logger.error(f"Invalid JSON text: {text[:1000]}")
-            self.last_error = f"JSON parsing error: {e}"
-            return []
+            except json.JSONDecodeError as e:
+                # --- Tentative 2 : récupération des objets complets avant la coupure ---
+                # Arrive si max_output_tokens est encore trop bas ou si Gemini
+                # génère un batch exceptionnellement long.
+                logger.warning(f"⚠️  JSON tronqué ({e}) — tentative de récupération partielle...")
+                recovered = _rescue_truncated_json(text)
+
+                if recovered:
+                    logger.warning(
+                        f"🔧 Récupération partielle : {len(recovered)} objets sauvés "
+                        f"(réponse probablement tronquée — envisager de réduire batch_size)"
+                    )
+                    self.last_error = f"JSON tronqué — {len(recovered)} objets récupérés"
+                    return recovered
+                else:
+                    logger.error(f"❌ Aucun objet récupérable. JSON error: {e}")
+                    logger.error(f"Invalid JSON text: {text[:1000]}")
+                    self.last_error = f"JSON parsing error: {e}"
+                    return []
+
         except Exception as e:
             logger.error(f"❌ Gemini extraction error: {e}")
             import traceback
@@ -282,11 +326,24 @@ class GeminiPriceExtractor:
         self,
         messages: List[str],
         batch_size: int = 100,
-        delay_seconds: int = 4
-    ) -> List[Dict]:
-        """Extract from all messages with batching"""
+        delay_seconds: int = 4,
+        on_batch_success: Optional[Callable[[List[Dict]], None]] = None,
+    ) -> Dict:
+        """
+        Extract from all messages with batching.
 
-        all_extractions = []
+        Args:
+            messages: liste de messages à traiter
+            batch_size: nombre de messages par batch
+            delay_seconds: délai entre les batches
+            on_batch_success: callback appelé après chaque batch réussi.
+                              Reçoit la liste des extractions du batch.
+                              Appelé AVANT de passer au batch suivant,
+                              ce qui garantit la persistence même en cas de crash.
+
+        Returns:
+            dict avec les totaux cumulés (extractions, animals, aliments)
+        """
         total_batches = (len(messages) + batch_size - 1) // batch_size
 
         logger.info(f"\n{'='*70}")
@@ -295,10 +352,17 @@ class GeminiPriceExtractor:
         logger.info(f"📊 Total messages: {len(messages)}")
         logger.info(f"📦 Batches: {total_batches} × {batch_size} messages")
         logger.info(f"⏱️  Delay between batches: {delay_seconds}s")
+        logger.info(f"🔢 max_output_tokens: {self.MAX_OUTPUT_TOKENS}")
         logger.info(f"{'='*70}\n")
 
         import time as time_module
         start_time = time_module.time()
+
+        totals = {
+            'total_extractions': 0,
+            'total_animals': 0,
+            'total_aliments': 0,
+        }
 
         for i in range(0, len(messages), batch_size):
             batch_num = (i // batch_size) + 1
@@ -316,7 +380,22 @@ class GeminiPriceExtractor:
             logger.info(f"⏱️  Batch duration: {batch_duration:.2f}s")
             logger.info(f"✅ Batch result: {len(results)} items extracted")
 
-            all_extractions.extend(results)
+            if results:
+                animals = [r for r in results if r.get('type') == 'animal']
+                aliments = [r for r in results if r.get('type') == 'aliment']
+
+                totals['total_extractions'] += len(results)
+                totals['total_animals'] += len(animals)
+                totals['total_aliments'] += len(aliments)
+
+                if on_batch_success is not None:
+                    try:
+                        on_batch_success(results)
+                        logger.info(f"💾 Batch {batch_num} persisté en base")
+                    except Exception as e:
+                        logger.error(f"❌ Erreur persistence batch {batch_num}: {e}")
+            else:
+                logger.info(f"⚠️  Batch {batch_num} vide, rien à persister")
 
             if i + batch_size < len(messages):
                 logger.info(f"⏳ Waiting {delay_seconds}s before next batch...")
@@ -327,40 +406,16 @@ class GeminiPriceExtractor:
         logger.info(f"\n{'='*70}")
         logger.info(f"🏁 EXTRACTION COMPLETE")
         logger.info(f"{'='*70}")
-        logger.info(f"✅ Total extracted: {len(all_extractions)} items")
+        logger.info(f"✅ Total extracted: {totals['total_extractions']} items")
         logger.info(f"⏱️  Total time: {total_duration:.2f}s ({total_duration/60:.2f} min)")
-        logger.info(f"📈 Average: {len(all_extractions)/total_batches:.1f} items/batch")
-        logger.info(f"⚡ Speed: {len(messages)/total_duration:.1f} messages/second")
+        if total_batches > 0:
+            logger.info(f"📈 Average: {totals['total_extractions']/total_batches:.1f} items/batch")
+        if total_duration > 0:
+            logger.info(f"⚡ Speed: {len(messages)/total_duration:.1f} messages/second")
 
-        # Breakdown by type
-        if all_extractions:
-            animals = [e for e in all_extractions if e.get('type') == 'animal']
-            aliments = [e for e in all_extractions if e.get('type') == 'aliment']
-
-            logger.info(f"\n📊 Breakdown:")
-            logger.info(f"   Animaux: {len(animals)}")
-            logger.info(f"   Aliments: {len(aliments)}")
-
-            if animals:
-                animal_counts = {}
-                for ext in animals:
-                    animal = ext.get('animal_type', 'unknown')
-                    animal_counts[animal] = animal_counts.get(animal, 0) + 1
-
-                logger.info(f"\n   Détail animaux:")
-                for animal, count in sorted(animal_counts.items(), key=lambda x: x[1], reverse=True):
-                    logger.info(f"      {animal}: {count}")
-
-            if aliments:
-                aliment_counts = {}
-                for ext in aliments:
-                    aliment = ext.get('aliment_type', 'unknown')
-                    aliment_counts[aliment] = aliment_counts.get(aliment, 0) + 1
-
-                logger.info(f"\n   Détail aliments:")
-                for aliment, count in sorted(aliment_counts.items(), key=lambda x: x[1], reverse=True):
-                    logger.info(f"      {aliment}: {count}")
-
+        logger.info(f"\n📊 Breakdown:")
+        logger.info(f"   Animaux: {totals['total_animals']}")
+        logger.info(f"   Aliments: {totals['total_aliments']}")
         logger.info(f"{'='*70}\n")
 
-        return all_extractions
+        return totals

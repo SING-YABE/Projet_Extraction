@@ -47,6 +47,7 @@ class PrixAliment(Base):
     categorie = Column(String(50))
     unite = Column(String(20))
     poids_kg = Column(Float)
+    prix_par_kg = Column(Float, nullable=True)   # ← AJOUT : prix ramené au kg pour comparaison
     quantite = Column(Integer, default=1)
     vendeur = Column(String(255))
     date = Column(Date)
@@ -70,14 +71,15 @@ class Prediction(Base):
     model_version = Column(String(50))
     created_at = Column(DateTime, default=datetime.now)
 
+
 class Depense(Base):
     __tablename__ = "depense"
 
     id = Column(BigInteger, primary_key=True, autoincrement=True)
-    date = Column(Date, nullable=False)  # LocalDate → Date
+    date = Column(Date, nullable=False)
     type_depense_id = Column(BigInteger, ForeignKey('type_depense.id'), nullable=False)
     description = Column(String, nullable=False)
-    montant = Column(Float, nullable=False)  # Double → Float
+    montant = Column(Float, nullable=False)
     mode_paiement = Column(String, nullable=False)
     observations = Column(String, nullable=True)
 
@@ -91,14 +93,6 @@ class TypeDepense(Base):
     nom = Column(String, nullable=False)
 
     depenses = relationship("Depense", back_populates="type_depense")
-# INSERT INTO type_depense (id, nom) VALUES
-# (1, 'ANIMAUX'),
-# (2, 'ALIMENTS'),
-# (3, 'SALAIRES'),
-# (4, 'TRANSPORT'),
-# (5, 'SANTÉ'),
-# (6, 'MATÉRIEL'),
-# (7, 'AUTRE');
 
 
 def get_db():
