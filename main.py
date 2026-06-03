@@ -13,7 +13,8 @@ from routers import (
     aliment_prediction_routes,
     webhook_routes,
     expense_routes,
-    advisor_routes  # SAD
+    advisor_routes,  # SAD — alertes règles métier
+    kpi_routes       # SAD — analyse KPI par LLM (Gemini)
 )
 from db.database import engine, Base
 from utils.config import settings
@@ -51,7 +52,8 @@ app.include_router(aliment_routes.router, prefix="/api", tags=["Aliments"])
 app.include_router(aliment_prediction_routes.router, prefix="/api", tags=["Aliments-Prediction"])
 app.include_router(webhook_routes.router, prefix="/webhook", tags=["Webhook"])
 app.include_router(expense_routes.router, prefix="/expenses", tags=["Expenses"])
-app.include_router(advisor_routes.router, prefix="/api", tags=["SAD"])  
+app.include_router(advisor_routes.router, prefix="/api", tags=["SAD"])
+app.include_router(kpi_routes.router,    prefix="/api", tags=["KPI-LLM"])
 
 @app.get("/")
 async def root():
