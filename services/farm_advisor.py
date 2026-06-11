@@ -19,12 +19,18 @@ def get_parametres() -> dict:
     """
     try:
         res = requests.get(f"{SPRING_BOOT_URL}/api/parametres-eleveur", timeout=5)
+        if res.status_code == 404:
+            raise ValueError("Paramètres non configurés. L'éleveur doit définir ses paramètres dans l'application.")
+        if res.status_code in (401, 403):
+            raise ValueError("Accès refusé à /api/parametres-eleveur. Vérifiez la configuration Spring Security.")
         if res.status_code == 500:
-            raise ValueError("Paramètres non configurés. L'éleveur doit d'abord définir ses paramètres dans l'application.")
+            raise ValueError("Erreur Spring Boot lors de la lecture des paramètres.")
         res.raise_for_status()
         return res.json()
     except requests.exceptions.ConnectionError:
-        raise ValueError("Impossible de contacter Spring Boot. Vérifiez que le backend est démarré.")
+        raise ValueError("Impossible de contacter Spring Boot (port 8080). Vérifiez que le backend est démarré.")
+    except requests.exceptions.Timeout:
+        raise ValueError("Spring Boot n'a pas répondu dans le délai imparti (5s).")
 
 
 def get_reproduction_alerts(db) -> List[Dict]:

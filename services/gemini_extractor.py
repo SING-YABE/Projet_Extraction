@@ -316,6 +316,45 @@ class GeminiPriceExtractor:
                     return []
 
         except Exception as e:
+            error_str = str(e)
+
+            # ── Gestion du quota 429 : attente et retry unique ────────────────
+            if "429" in error_str or "quota" in error_str.lower() or "rate" in error_str.lower():
+                # Extraire le délai suggéré par l'API si présent ("retry in Xs")
+                import re as _re
+                match = _re.search(r"retry in ([0-9.]+)s", error_str)
+                wait = float(match.group(1)) + 2 if match else 45
+
+                logger.warning(
+                    f"⏳ Gemini quota 429 — attente {wait:.0f}s avant retry..."
+                )
+                time.sleep(wait)
+
+                try:
+                    response = self.model.generate_content(
+                        prompt,
+                        generation_config={
+                            'temperature': 0,
+                            'max_output_tokens': self.MAX_OUTPUT_TOKENS,
+                        }
+                    )
+                    text = response.text.strip()
+                    # Nettoyage markdown
+                    if text.startswith('```json'):
+                        text = text.replace('```json\n', '').replace('\n```', '')
+                    elif text.startswith('```'):
+                        text = text.replace('```\n', '').replace('\n```', '')
+                    text = text.strip()
+                    results = json.loads(text) if text else []
+                    if isinstance(results, list):
+                        logger.info(f"✅ Gemini retry OK: {len(results)} items")
+                        self.last_error = None
+                        return results
+                except Exception as retry_e:
+                    logger.error(f"❌ Gemini retry échoué: {retry_e}")
+                    self.last_error = f"Gemini 429 + retry failed: {retry_e}"
+                    return []
+
             logger.error(f"❌ Gemini extraction error: {e}")
             import traceback
             logger.error(f"Traceback: {traceback.format_exc()}")

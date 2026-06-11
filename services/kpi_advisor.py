@@ -4,13 +4,13 @@ Module d'aide à la décision basé sur LLM — Élevage porcin Burkina Faso
 
 Ce module calcule les KPI clés de l'élevage (reproduction, croissance,
 économie, santé, gestion) à partir de la base de données, puis soumet
-ces indicateurs à Gemini pour obtenir une analyse et des recommandations
-contextualisées aux réalités du Burkina Faso.
+ces indicateurs à Mistral (via Ollama en local) pour obtenir une analyse
+et des recommandations contextualisées aux réalités du Burkina Faso.
 
 Architecture :
   1. collect_kpis(db)      → collecte les KPI depuis PostgreSQL (données Spring Boot)
   2. build_prompt(kpis)    → construit le prompt structuré pour le LLM
-  3. ask_llm(prompt)       → appelle l'API Gemini et retourne la réponse
+  3. ask_llm(prompt)       → appelle Mistral via Ollama (local, sans quota)
   4. analyse_kpis(db)      → fonction principale : collecte + LLM + réponse formatée
 
 Stades de référence (DGPA/MRAH Burkina Faso 2021 + ONG Thamani) :
@@ -21,15 +21,12 @@ Stades de référence (DGPA/MRAH Burkina Faso 2021 + ONG Thamani) :
   - Coût aliment cible       : ≤ 100 FCFA/kg (= 1/6 × 600 FCFA/kg prix vente)
 """
 
-import json
 import logging
 from typing import Any, Dict, Optional
 
-import google.generativeai as genai
+import ollama
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-
-from utils.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -52,11 +49,10 @@ def _safe_query(db: Session, sql: str, params: dict = None):
         return None
 
 # ---------------------------------------------------------------------------
-# Configuration Gemini
+# Configuration Ollama — Mistral local (aucun quota, aucune clé API)
 # ---------------------------------------------------------------------------
 
-genai.configure(api_key=settings.GEMINI_API_KEY)
-_model = genai.GenerativeModel("gemini-2.0-flash")
+OLLAMA_MODEL = "mistral"  # modèle installé via `ollama pull mistral`
 
 
 # ---------------------------------------------------------------------------
@@ -531,9 +527,8 @@ def build_prompt(kpis: Dict[str, Any], question_utilisateur: Optional[str] = Non
         for i, a in enumerate(top_soins)
     ) if top_soins else "  Aucune donnée"
 
-    prompt = f"""Tu es un conseiller expert en élevage porcin au Burkina Faso, spécialisé dans les exploitations
-de la région de Bobo-Dioulasso. Tu maîtrises les fiches techniques DGPA/MRAH (Juin 2021) et les recommandations
-terrain de l'ONG Thamani (secteur 24, Bobo-Dioulasso).
+    prompt = f"""Tu es un conseiller expert en élevage porcin au Burkina Faso. Tu maîtrises les fiches techniques DGPA/MRAH (Juin 2021) et les bonnes pratiques adaptées aux réalités locales burkinabè (ressources alimentaires disponibles, climat, contraintes économiques).
+Ne mentionne aucune ville spécifique dans ta réponse sauf si l'éleveur te la précise.
 
 Voici les indicateurs de performance (KPI) de l'élevage sur les 12 derniers mois :
 
@@ -639,23 +634,107 @@ Réponds en français, de façon claire et pratique, adapté à un éleveur du B
 
 def ask_llm(prompt: str) -> str:
     """
-    Envoie le prompt à l'API Gemini Flash et retourne la réponse textuelle.
-
-    Utilise gemini-1.5-flash pour un bon équilibre vitesse/qualité.
-    Lève une exception si l'API est inaccessible ou retourne une erreur.
+    Envoie le prompt à Mistral via Ollama (local).
+    Aucun quota, aucune clé API, aucune donnée envoyée à l'extérieur.
+    Lève RuntimeError si Ollama n'est pas démarré.
     """
     try:
-        response = _model.generate_content(prompt)
-        return response.text.strip()
+        logger.info(f"Appel Ollama → modèle : {OLLAMA_MODEL}")
+        response = ollama.chat(
+            model=OLLAMA_MODEL,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        texte = response["message"]["content"].strip()
+        logger.info("✅ Réponse Ollama reçue")
+        return texte
     except Exception as e:
         msg = str(e)
-        if "429" in msg or "quota" in msg.lower() or "rate" in msg.lower():
+        if "connection" in msg.lower() or "refused" in msg.lower():
             raise RuntimeError(
-                "Quota Gemini dépassé (limite gratuite atteinte). "
-                "Réessayez dans quelques minutes ou demain. "
-                "Pour un usage illimité, activez la facturation sur https://aistudio.google.com"
+                "Ollama n'est pas démarré. Lancez 'ollama serve' dans un terminal."
             )
-        raise RuntimeError(f"Erreur Gemini : {msg[:200]}")
+        raise RuntimeError(f"Erreur Ollama : {msg[:200]}")
+
+
+def _analyse_regle_metier(kpis: Dict[str, Any], question: Optional[str] = None) -> str:
+    """
+    Analyse de secours basée sur les règles métier DGPA/MRAH Burkina Faso.
+    Utilisée quand Gemini est totalement indisponible (quota épuisé sur tous modèles).
+    Produit un diagnostic automatique sans LLM.
+    """
+    repro = kpis.get("reproduction", {})
+    croit = kpis.get("croissance", {})
+    eco   = kpis.get("economie", {})
+    sante = kpis.get("sante", {})
+    geste = kpis.get("gestion", {})
+
+    lignes = ["## 📊 Analyse automatique (mode hors-ligne)\n",
+              "_L'IA Gemini est temporairement indisponible. Voici une analyse basée sur les règles DGPA/MRAH Burkina Faso._\n"]
+
+    alertes, points_forts = [], []
+
+    # Reproduction
+    proli = repro.get("prolificite_moy")
+    if proli is not None:
+        if proli >= 8:
+            points_forts.append(f"✅ Prolificité satisfaisante ({proli} porcelets/portée — objectif ≥ 8)")
+        else:
+            alertes.append(f"🔴 Prolificité insuffisante : {proli} porcelets/portée (objectif ≥ 8). Revoir la nutrition des truies gestantes et la qualité du verrat.")
+
+    mort_porc = repro.get("taux_mortalite_porcelet_pct")
+    if mort_porc is not None:
+        if mort_porc <= 15:
+            points_forts.append(f"✅ Mortalité porcelets acceptable ({mort_porc}% — seuil ≤ 15%)")
+        else:
+            alertes.append(f"🔴 Mortalité porcelets élevée : {mort_porc}% (seuil ≤ 15%). Améliorer la chaleur en maternité, l'allaitement et la surveillance à la naissance.")
+
+    issf = repro.get("issf_moyen_jours")
+    if issf is not None:
+        if issf <= 7:
+            points_forts.append(f"✅ ISSF excellent ({issf}j — objectif ≤ 7j)")
+        else:
+            alertes.append(f"⚠️ ISSF long : {issf}j (objectif ≤ 7j). Vérifier l'état corporel des truies au sevrage et l'apport énergétique post-sevrage.")
+
+    # Croissance
+    gmq = croit.get("gmq_g_jour")
+    if gmq is not None:
+        if gmq >= 400:
+            points_forts.append(f"✅ GMQ correct ({gmq} g/j — objectif 400–600 g/j)")
+        else:
+            alertes.append(f"⚠️ GMQ faible : {gmq} g/j (objectif 400–600 g/j). Revoir la ration d'engraissement (drèche, son de maïs, compléments protéiques).")
+
+    # Économie
+    cout_kg = eco.get("cout_par_kg_aliment_fcfa")
+    if cout_kg is not None:
+        if cout_kg <= 100:
+            points_forts.append(f"✅ Coût aliment maîtrisé ({cout_kg} FCFA/kg — objectif ≤ 100 FCFA/kg)")
+        else:
+            alertes.append(f"⚠️ Coût aliment élevé : {cout_kg} FCFA/kg (objectif ≤ 100 FCFA/kg). Intégrer davantage de drèche de dolo et son de maïs local.")
+
+    # Gestion
+    occ = geste.get("taux_occupation_batiments_pct")
+    if occ is not None:
+        if 50 <= occ <= 85:
+            points_forts.append(f"✅ Taux d'occupation optimal ({occ}%)")
+        elif occ < 50:
+            alertes.append(f"⚠️ Sous-occupation des bâtiments ({occ}% — optimal 50–85%). Augmenter le cheptel ou réduire la surface utilisée.")
+        else:
+            alertes.append(f"🔴 Surpopulation des bâtiments ({occ}% — optimal 50–85%). Risque sanitaire élevé, prévoir une extension.")
+
+    # Synthèse
+    if points_forts:
+        lignes.append("### ✅ Points forts\n" + "\n".join(f"- {p}" for p in points_forts))
+    if alertes:
+        lignes.append("\n### 🚨 Points à améliorer\n" + "\n".join(f"- {a}" for a in alertes))
+    if not alertes and not points_forts:
+        lignes.append("_Données insuffisantes pour générer une analyse automatique._")
+
+    if question:
+        lignes.append(f"\n### ❓ Votre question : _{question}_")
+        lignes.append("_L'IA n'est pas disponible pour répondre en ce moment. Réessayez dans quelques minutes ou demain matin._")
+
+    lignes.append("\n---\n_Pour une analyse IA complète, réessayez dans quelques minutes._")
+    return "\n".join(lignes)
 
 
 # ---------------------------------------------------------------------------
@@ -689,9 +768,12 @@ def analyse_kpis(db: Session, question_utilisateur: Optional[str] = None) -> Dic
             "erreur": None
         }
     except RuntimeError as e:
+        # Gemini indisponible → analyse automatique par règles métier
+        logger.warning(f"LLM indisponible, utilisation de l'analyse de secours : {e}")
+        analyse_secours = _analyse_regle_metier(kpis, question_utilisateur)
         return {
             "kpis": kpis,
-            "analyse": None,
+            "analyse": analyse_secours,
             "question": question_utilisateur,
-            "erreur": str(e)
+            "erreur": str(e)   # conservé pour info, mais l'analyse est quand même fournie
         }

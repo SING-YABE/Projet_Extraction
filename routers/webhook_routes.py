@@ -15,14 +15,20 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from models.schemas import WhatsAppWebhookPayload
 from services.extraction_workflow import process_messages
-from services.gemini_extractor import GeminiPriceExtractor
+from services.smart_extractor import SmartPriceExtractor
 from utils.config import settings
 from utils.logger import logger
 from utils.message_cleaner_and_redirection import message_cleaner_and_redirection
 from db.crud import create_depense
 
 router = APIRouter()
-extractor = GeminiPriceExtractor(settings.GEMINI_API_KEY)
+extractor = SmartPriceExtractor(
+    gemini_api_key=settings.GEMINI_API_KEY,
+    ollama_base_url=settings.OLLAMA_BASE_URL,
+    ollama_model=settings.OLLAMA_MODEL,
+    confidence_threshold=settings.OLLAMA_CONFIDENCE_THRESHOLD,
+    ollama_timeout=settings.OLLAMA_TIMEOUT,
+)
 
 # Créer le dossier audios à la racine du projet
 AUDIO_DIR = Path(__file__).parent.parent / "audios"

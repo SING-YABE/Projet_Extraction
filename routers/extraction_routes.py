@@ -1,11 +1,11 @@
 """
-Routes pour l'extraction de prix avec Gemini
+Routes pour l'extraction de prix (Ollama → Gemini fallback)
 """
 from fastapi import APIRouter, UploadFile, File, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from services import file_parser
-from services.gemini_extractor import GeminiPriceExtractor
+from services.smart_extractor import SmartPriceExtractor
 from services.extraction_workflow import process_messages
 from models.schemas import ExtractionResponse
 from utils.config import settings
@@ -16,7 +16,13 @@ from db.database import get_db
 
 router = APIRouter()
 
-extractor = GeminiPriceExtractor(settings.GEMINI_API_KEY)
+extractor = SmartPriceExtractor(
+    gemini_api_key=settings.GEMINI_API_KEY,
+    ollama_base_url=settings.OLLAMA_BASE_URL,
+    ollama_model=settings.OLLAMA_MODEL,
+    confidence_threshold=settings.OLLAMA_CONFIDENCE_THRESHOLD,
+    ollama_timeout=settings.OLLAMA_TIMEOUT,
+)
 
 
 @router.post("/extract", response_model=ExtractionResponse)

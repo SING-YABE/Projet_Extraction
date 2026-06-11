@@ -5,7 +5,6 @@ from typing import List, Dict, Optional
 from sqlalchemy.orm import Session
 
 from services import validator
-from services.gemini_extractor import GeminiPriceExtractor
 from db import crud
 from ml.features import get_categorie_aliment
 from utils.logger import logger
@@ -87,7 +86,7 @@ def _persist_batch(extractions: List[Dict], db: Session) -> Dict[str, int]:
 def process_messages(
     messages: List[str],
     db: Session,
-    extractor: GeminiPriceExtractor,
+    extractor,          # SmartPriceExtractor | GeminiPriceExtractor | OllamaPriceExtractor
     steps: Optional[List[Dict[str, str]]] = None
 ) -> Dict[str, int]:
     """Extract prices from messages and persist them batch by batch."""
